@@ -1,0 +1,24 @@
+---
+import "../styles/base.css";
+import "../styles/layout.css";
+import Header from "../layouts/Header.astro";
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+  </head><a rel="icon" type="image/svg+xml" href="/favicon.svg"></a>
+  <meta name="generator" content={Astro.generator} />
+  <title>King Kang</title>
+  <body>
+    <Header />
+    <div class="container">
+      <slot />
+    </div>
+  </body>
+  <style></style>
+
+
+</html>

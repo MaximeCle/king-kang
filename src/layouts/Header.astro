@@ -1,0 +1,85 @@
+<header class="header menu-container">
+  <div class="logo">
+    <a href="/" class="logo-link">
+      <img src="/logo-king-kang.svg" />
+      <p>King Kang</p>
+    </a>
+  </div>
+  <div class="stack-row gap-5">
+    <nav class="stack-row" style={{ alignItems: "center" }}>
+      <ul class="menu">
+        <li>
+          <a href="/" class="menu-item" style={{ fontWeight: "700" }}>
+            Accueil
+          </a>
+        </li>
+        <li>
+          <a href="/" class="menu-item"> Fonctionnalités </a>
+        </li>
+        <li>
+          <a href="/" class="menu-item"> Prix </a>
+        </li>
+        <li>
+          <a href="/blog" class="menu-item"> Blog </a>
+        </li>
+        <li>
+          <a href="/contact" class="menu-item"> Contact </a>
+        </li>
+      </ul>
+    </nav>
+    <button class="button">Se connecter</button>
+  </div>
+</header>
+
+<style>
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2-5);
+    padding-left: var(--space-3-5);
+    padding-right: var(--space-3-5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .logo-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    opacity: 0.8;
+  }
+  .logo-link > img {
+    margin-right: var(--space-2);
+    height: 56px;
+  }
+
+  /* .menu-container {
+    max-width: 1380px;
+  } */
+
+  .menu {
+    display: flex;
+    gap: var(--space-6);
+    color: #fff;
+    align-items: "center";
+    font-size: var(--font-size-sm);
+  }
+
+  .menu-item {
+    color: #fff;
+    font-weight: 300;
+    text-decoration: none;
+  }
+
+  @media (min-width: 2000px) {
+    .menu-container {
+      max-width: 1920px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>

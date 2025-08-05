@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #1a7ec2;
+  --color-primary-hover: #155a8a;
+  --color-text-primary: #25333e;
+  --color-text-secondary: #52525b;
+  --color-background-primary: #274156;
+  --color-border: #e5e5e6;
+  --space-0-5: 4px;
+  --space-1: 8px;
+  --space-1-5: 12px;
+  --space-2: 16px;
+  --space-2-5: 20px;
+  --space-3: 24px;
+  --space-3-5: 28px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-7: 56px;
+  --space-8: 64px;
+  --space-xl: 100px;
+  --font-size-2xs: 10px;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 28px;
+  --font-size-4xl: 32px;
+  --font-size-5xl: 40px;
+  --font-size-6xl: 44px;
+}
+
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: #fff;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--font-size-6xl);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+}
+
+.gap-1 {
+  gap: 8px;
+}
+
+.gap-1-5 {
+  gap: 12px;
+}
+
+.gap-2 {
+  gap: 16px;
+}
+
+.gap-2-5 {
+  gap: 20px;
+}
+
+.gap-3 {
+  gap: 24px;
+}
+
+.gap-3-5 {
+  gap: 28px;
+}
+
+.gap-4 {
+  gap: 32px;
+}
+
+.gap-5 {
+  gap: 40px;
+}
+
+.gap-6 {
+  gap: 48px;
+}
+
+p {
+  line-height: 1.8;
+}
+
+button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: var(--space-1-5) var(--space-2-5);
+  border-radius: 6px;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover {
+  background: var(--color-primary-hover);
+}
+
+.title-light {
+  color: white;
+}
+
+.subtitle-light {
+  color: var(--color-border);
+}
+
+.surtitle {
+  color: var(--color-primary);
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.text-main-light {
+  color: var(--color-border);
+  font-size: var(--font-size-sm);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-md);
+  line-height: 1.8;
+}
+
+.flex-justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.highlight-text {
+  color: var(--color-primary);
+}
