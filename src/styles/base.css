@@ -10,7 +10,11 @@
   --color-text-primary: #25333e;
   --color-text-secondary: #52525b;
   --color-background-primary: #274156;
+  --color-background-light: #f9f9f9;
+  --color-white-hover: #e3e3e7;
   --color-border: #e5e5e6;
+  --color-success-content: #1e7b41;
+  --color-success-background: #f0fff5;
   --space-0-5: 4px;
   --space-1: 8px;
   --space-1-5: 12px;
@@ -35,6 +39,8 @@
   --font-size-4xl: 32px;
   --font-size-5xl: 40px;
   --font-size-6xl: 44px;
+  --border-radius-md: 8px;
+  --border-radius-sm: 4px;
 }
 
 body {
@@ -121,6 +127,14 @@ h4 {
   gap: 48px;
 }
 
+.gap-7 {
+  gap: 56px;
+}
+
+.gap-8 {
+  gap: 64px;
+}
+
 p {
   line-height: 1.8;
 }
@@ -137,6 +151,22 @@ button {
 }
 button:hover {
   background: var(--color-primary-hover);
+}
+
+.button-white {
+  background: #fff;
+  color: var(--color-primary);
+  border: none;
+  padding: var(--space-1-5) var(--space-2-5);
+  border-radius: 6px;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.button-white:hover {
+  background: var(--color-white-hover);
 }
 
 .title-light {

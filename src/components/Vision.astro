@@ -5,30 +5,31 @@ import { visionItems } from "../content";
 <section class="full-width-block block">
   <div class="light-ellipse"></div>
   <div class="container">
-    <div class="stack-column gap-3">
+    <div class="stack-column gap-5">
       <div class="stack-column gap-2">
         <h5 class="surtitle">Notre vision</h5>
-        <div class="stack-column gap-3">
-          <h2 class="title-light">La dématérialisation</h2>
-          <p class="vision-description">
-            Cette transformation numérique, qui consiste à convertir des
-            documents papier en formats électroniques, ne se limite pas à une
-            simple tendance, mais elle représente une évolution essentielle pour
-            le succès à long terme des entreprises :
-          </p>
-        </div>
-        <div class="vision-grid" style={{ zIndex: 3 }}>
-          {
-            visionItems.map((item, index) => (
-              <div class="vision-grid-item">
-                <div class="stack-column gap-2">
+        <h2 class="title-light">La dématérialisation</h2>
+        <p class="vision-description">
+          Cette transformation numérique, qui consiste à convertir des documents
+          papier en formats électroniques, ne se limite pas à une simple
+          tendance, mais elle représente une évolution essentielle pour le
+          succès à long terme des entreprises :
+        </p>
+      </div>
+      <div class="vision-grid" style={{ zIndex: 3 }}>
+        {
+          visionItems.map((item, index) => (
+            <div class="vision-grid-item">
+              <div class="stack-column gap-2">
+                <div class="stack-row gap-1 alignCenter">
+                  <img src={`/${item.icon}.svg`} class="vision-icon" />
                   <h4 style={{ color: "white" }}>{item.title}</h4>
-                  <p class="text-main-light">{item.content}</p>
                 </div>
+                <p class="text-main-light">{item.content}</p>
               </div>
-            ))
-          }
-        </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
@@ -39,18 +40,20 @@ import { visionItems } from "../content";
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    gap: var(--space-1);
+    gap: var(--space-1-5);
   }
-
   .vision-grid-item {
     padding: var(--space-4);
     background-color: rgba(88, 111, 131, 0.4);
-    border-radius: 4px;
+    border-radius: var(--border-radius-sm);
     border: 1px solid;
     border-color: rgba(255, 255, 255, 0.2);
   }
   .vision-description {
     color: var(--color-border);
     font-size: var(--font-size-md);
+  }
+  .vision-icon {
+    max-height: 22px;
   }
 </style>

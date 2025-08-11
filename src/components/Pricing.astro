@@ -1,0 +1,68 @@
+---
+import { pricingItems } from "../content";
+---
+
+<section class="block pricing stack-column gap-4">
+  <div class="stack-column gap-2">
+    <h5 class="surtitle">Prix</h5>
+    <h2>Les offres King kang</h2>
+  </div>
+  <div class="pricing-content stack-row alignCenter gap-4">
+    {
+      pricingItems.map((item, index) => (
+        <div class="pricing-item">
+          <div class="pricing-item-header stack-column gap-1-5">
+            <h4>{item.title}</h4>
+            <h3>{`${item.price} € / mois`}</h3>
+            <p class="pricing-description">{item.description}</p>
+          </div>
+          <ul class="pricing-options stack-column gap-2">
+            {item.options.map((itemOptions, index) => (
+              <li class="stack-row gap-1 alignCenter">
+                <div class="icon-container">
+                  <img
+                    src={`/${itemOptions.enabled ? "check" : "error"}.svg`}
+                  />
+                </div>
+                <p class="text-secondary">{itemOptions.option}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .pricing {
+    padding-top: var(--space-5);
+  }
+  .pricing-item {
+    border: 1px solid;
+    border-color: var(--color-border);
+    padding: var(--space-2-5);
+    border-radius: var(--border-radius-md);
+  }
+  .pricing-item-header {
+    padding-bottom: var(--space-2-5);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .pricing-options {
+    padding: var(--space-2-5) 0;
+  }
+  .pricing-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: var(--color-success-background);
+    height: 22px;
+    width: 22px;
+  }
+</style>
