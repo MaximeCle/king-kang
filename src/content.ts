@@ -43,7 +43,7 @@ export const pricingItems = [
     price: 15,
     description:
       "Tincidunt diam, malesuada elementum justo. Ut neque nulla, pulvinar ac pulvinar non",
-    hightlight: false,
+    highlight: false,
     options: [
       {
         enabled: true,
@@ -84,7 +84,7 @@ export const pricingItems = [
     price: 50,
     description:
       "Tincidunt diam, malesuada elementum justo. Ut neque nulla, pulvinar ac pulvinar non",
-    hightlight: false,
+    highlight: false,
     options: [
       {
         enabled: true,
@@ -125,7 +125,7 @@ export const pricingItems = [
     price: 100,
     description:
       "Tincidunt diam, malesuada elementum justo. Ut neque nulla, pulvinar ac pulvinar non",
-    hightlight: true,
+    highlight: true,
     options: [
       {
         enabled: true,
@@ -166,7 +166,7 @@ export const pricingItems = [
     price: 150,
     description:
       "Tincidunt diam, malesuada elementum justo. Ut neque nulla, pulvinar ac pulvinar non",
-    hightlight: false,
+    highlight: false,
     options: [
       {
         enabled: true,

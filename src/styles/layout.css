@@ -18,6 +18,7 @@
   margin-right: -50vw;
   background-color: var(--color-background-primary);
   z-index: -2;
+  overflow: hidden;
 }
 
 .stack-row {
@@ -30,19 +31,29 @@
   flex-direction: column;
 }
 
-.alignCenter {
+.flex-align-center {
   display: flex;
   align-items: center;
 }
 
-.justifyCenter {
+.flex-justify-center {
   display: flex;
   justify-content: center;
 }
 
-.justifyBetween {
+.flex-justify-between {
   display: flex;
   justify-content: space-between;
+}
+
+.flex-justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-1 {
+  display: flex;
+  flex: 1;
 }
 
 /* .fade-in {

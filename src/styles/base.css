@@ -147,7 +147,7 @@ button {
   border-radius: 6px;
   font-size: var(--font-size-sm);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.3s;
 }
 button:hover {
   background: var(--color-primary-hover);
@@ -162,7 +162,7 @@ button:hover {
   font-size: var(--font-size-sm);
   cursor: pointer;
   font-weight: 600;
-  transition: background 0.2s;
+  transition: background 0.3s;
 }
 
 .button-white:hover {
@@ -192,11 +192,6 @@ button:hover {
   color: var(--color-text-secondary);
   font-size: var(--font-size-md);
   line-height: 1.8;
-}
-
-.flex-justify-center {
-  display: flex;
-  justify-content: center;
 }
 
 .highlight-text {

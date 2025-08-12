@@ -11,7 +11,9 @@
         Du devis à la gestion de vos factures, en un seul outil
       </p>
       <div class="flex-justify-center">
-        <button class="button-video">Vidéo de présentation</button>
+        <button class="button-video"
+          >Vidéo de présentation <img src="/play.svg" /></button
+        >
       </div>
       <div class="flex-justify-center">
         <div class="landing-screen-presentation-container">
@@ -36,7 +38,7 @@
     letter-spacing: 2px;
     font-weight: 400;
     padding: var(--space-0-5) var(--space-1);
-    background-color: rgba(88, 111, 131, 0.4);
+    background-color: rgba(88, 111, 131, 0.1);
     border-radius: var(--border-radius-sm);
     border: 1px solid;
     border-color: rgba(255, 255, 255, 0.2);
@@ -64,6 +66,17 @@
     border-radius: var(--border-radius-md);
     border: 1px solid;
     border-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
+
+  .button-video > img {
+    margin-left: var(--space-1-5);
+  }
+  .button-video:hover {
+    background-color: rgba(147, 177, 197, 0.1);
   }
 
   .landing-screen-presentation-container {
