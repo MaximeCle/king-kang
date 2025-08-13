@@ -1,5 +1,5 @@
 <section class="landing-section">
-  <div class="background"></div>
+  <div class="background-landing"></div>
   <div class="light-ellipse"></div>
   <div class="landing-content">
     <div class="stack-column gap-2 fade-in">
@@ -17,6 +17,8 @@
       </div>
       <div class="flex-justify-center">
         <div class="landing-screen-presentation-container">
+          <img src="/kangaroo.svg" class="kangaroo-illustration" />
+          <img src="/crown.svg" class="crown-illustration" />
           <div class="landing-screen-presentation"></div>
         </div>
       </div>
@@ -86,6 +88,23 @@
     border-color: rgba(255, 255, 255, 0.2);
     margin-top: var(--space-2-5);
     padding: var(--space-2-5);
+    position: relative;
+  }
+
+  .kangaroo-illustration {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    transform: translateY(-100%);
+    opacity: 0.6;
+  }
+
+  .crown-illustration {
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    transform: translateY(-70%);
+    opacity: 0.6;
   }
 
   .landing-screen-presentation {
@@ -118,6 +137,9 @@
     .landing-screen-presentation {
       width: 1222px;
       height: 650px;
+    }
+    .background-landing {
+      background-image: url("/KK-effect-2560.svg");
     }
   }
 </style>

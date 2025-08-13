@@ -2,9 +2,9 @@
 import { visionItems } from "../content";
 ---
 
-<section class="full-width-block block">
+<section class="full-width-block block vision-section">
   <div class="light-ellipse"></div>
-  <div class="container">
+  <div class="container container-vision">
     <div class="stack-column gap-5">
       <div class="stack-column gap-2">
         <h5 class="surtitle">Notre vision</h5>
@@ -21,7 +21,7 @@ import { visionItems } from "../content";
           visionItems.map((item, index) => (
             <div class="vision-grid-item">
               <div class="stack-column gap-2">
-                <div class="stack-row gap-1 alignCenter">
+                <div class="stack-row gap-1 flex-align-center">
                   <img src={`/${item.icon}.svg`} class="vision-icon" />
                   <h4 style={{ color: "white" }}>{item.title}</h4>
                 </div>
@@ -32,28 +32,46 @@ import { visionItems } from "../content";
         }
       </div>
     </div>
+    <img src="/kangaroo.svg" class="kangaroo-illustration" />
   </div>
-</section>
 
-<style>
-  .vision-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: var(--space-1-5);
-  }
-  .vision-grid-item {
-    padding: var(--space-4);
-    background-color: rgba(88, 111, 131, 0.4);
-    border-radius: var(--border-radius-sm);
-    border: 1px solid;
-    border-color: rgba(255, 255, 255, 0.2);
-  }
-  .vision-description {
-    color: var(--color-border);
-    font-size: var(--font-size-md);
-  }
-  .vision-icon {
-    max-height: 22px;
-  }
-</style>
+  <style>
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: var(--space-1-5);
+    }
+    .vision-grid-item {
+      padding: var(--space-4);
+      background-color: rgba(88, 111, 131, 0.4);
+      border-radius: var(--border-radius-sm);
+      border: 1px solid;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .vision-description {
+      color: var(--color-border);
+      font-size: var(--font-size-md);
+    }
+    .vision-icon {
+      max-height: 22px;
+    }
+    .vision-section {
+      background-color: var(--color-background-primary);
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .kangaroo-illustration {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: translateY(100px);
+      opacity: 0.6;
+      height: 54px;
+    }
+    .container-vision {
+      position: relative;
+    }
+  </style>
+</section>

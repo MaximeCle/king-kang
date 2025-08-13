@@ -7,51 +7,67 @@ import { pricingItems } from "../content";
     <h5 class="surtitle">Prix</h5>
     <h2>Les offres King kang</h2>
   </div>
-  <div class="pricing-content stack-row alignCenter gap-4">
+  <div class="pricing-content stack-row flex-align-center gap-4">
     {
       pricingItems.map((item, index) => (
-        <div class={`pricing-item ${item.highlight && "highlight-pricing"}`}>
-          {item.highlight && <div class="pricing-light-ellipse" />}
-
-          <div
-            class={`pricing-item-header stack-column gap-1-5 ${item.highlight && "pricing-item-header-highlight"}`}
-          >
-            <h3 class={`${item.highlight && "title-light"}`}>{item.title}</h3>
-            <h2
-              class={`${item.highlight && "title-light"}`}
-            >{`${item.price} € / mois`}</h2>
-
-            <p
-              class={`${item.highlight ? "text-main-light" : "pricing-description"}`}
-            >
-              {item.description}
-            </p>
-          </div>
-          <ul class="pricing-options stack-column gap-2-5">
-            {item.options.map((itemOptions, index) => (
-              <li class="stack-row gap-1 alignCenter">
-                <div
-                  class={`icon-container ${
-                    itemOptions.enabled
-                      ? item.highlight
-                        ? "icon-success-highlight"
-                        : "icon-success"
-                      : "icon-disable"
-                  }`}
-                >
-                  <img
-                    src={`/${itemOptions.enabled ? (item.highlight ? "check-blue" : "check-green") : "error"}.svg`}
-                  />
-                </div>
-                <p
-                  class={`${item.highlight ? "option-highlight-text" : "text-secondary"}`}
-                >
-                  {itemOptions.option}
+        <>
+          <div class={`pricing-item`}>
+            {item.highlight && (
+              <div class="popular-indication">
+                <p>
+                  <span style={{ marginRight: "6px" }}>⭐️</span>La plus
+                  populaire
                 </p>
-              </li>
-            ))}
-          </ul>
-        </div>
+              </div>
+            )}
+            <div
+              class={`pricing-container-intern ${item.highlight && "highlight-pricing"}`}
+            >
+              {item.highlight && <div class="pricing-light-ellipse" />}
+
+              <div
+                class={`pricing-item-header stack-column gap-1-5 ${item.highlight && "pricing-item-header-highlight"}`}
+              >
+                <h3 class={`${item.highlight && "title-light"}`}>
+                  {item.title}
+                </h3>
+                <h2
+                  class={`${item.highlight && "title-light"}`}
+                >{`${item.price} € / mois`}</h2>
+
+                <p
+                  class={`${item.highlight ? "text-main-light" : "pricing-description"}`}
+                >
+                  {item.description}
+                </p>
+              </div>
+              <ul class="pricing-options stack-column gap-2-5">
+                {item.options.map((itemOptions, index) => (
+                  <li class="stack-row gap-1 flex-align-center">
+                    <div
+                      class={`icon-container ${
+                        itemOptions.enabled
+                          ? item.highlight
+                            ? "icon-success-highlight"
+                            : "icon-success"
+                          : "icon-disable"
+                      }`}
+                    >
+                      <img
+                        src={`/${itemOptions.enabled ? (item.highlight ? "check-blue" : "check-green") : "error"}.svg`}
+                      />
+                    </div>
+                    <p
+                      class={`${item.highlight ? "option-highlight-text" : "text-secondary"}`}
+                    >
+                      {itemOptions.option}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </>
       ))
     }
   </div>
@@ -61,16 +77,22 @@ import { pricingItems } from "../content";
   .pricing {
     padding-top: var(--space-5);
   }
+
   .pricing-item {
     border: 1px solid;
     border-color: var(--color-border);
-    padding: var(--space-2-5);
     border-radius: var(--border-radius-md);
     position: relative;
   }
+  .pricing-container-intern {
+    padding: var(--space-3);
+    border-radius: var(--border-radius-md);
+    position: relative;
+    overflow: hidden;
+    z-index: -2;
+  }
   .highlight-pricing {
     background-color: var(--color-background-primary);
-    overflow: hidden;
     z-index: -2;
   }
   .option-highlight-text {
@@ -103,7 +125,6 @@ import { pricingItems } from "../content";
     background: var(--color-success-background);
     color: var(--color-success-content);
   }
-
   .icon-disable {
     background: var(--color-background-light);
     color: var(--color-text-secondary);
@@ -113,7 +134,7 @@ import { pricingItems } from "../content";
   }
   .pricing-light-ellipse {
     width: 100%;
-    height: 100%;
+    height: 200%;
     background: radial-gradient(
       ellipse at center,
       rgba(64, 150, 208, 0.63) 0%,
@@ -121,10 +142,24 @@ import { pricingItems } from "../content";
       rgba(32, 131, 198, 0) 100%
     );
     border-radius: 50% / 50%;
-    filter: blur(60px);
+    filter: blur(40px);
     top: 0;
     left: 0;
     position: absolute;
     z-index: -1;
+  }
+  .popular-indication {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: fit-content;
+    transform: translate(-50%, -50%);
+    color: #1a7ec2;
+    background: #f1f9ff;
+    padding: var(--space-0-5) var(--space-1);
+    font-size: var(--font-size-xs);
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    box-shadow: var(--box-shadow-sm);
   }
 </style>

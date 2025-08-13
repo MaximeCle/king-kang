@@ -16,16 +16,57 @@
       </p>
     </div>
     <div class="integration-illustration">
-      <img src="/integration.jpg" />
+      <img src="/integration.jpg" class="integration-image" />
+      <img src="/integration-part.jpg" class="integration-part" />
+      <img
+        src="/sofinco.svg"
+        class="sofinco-logo absolute finance-logo-container"
+      />
+      <img
+        src="/cofidis.svg"
+        class="cofidis-logo absolute finance-logo-container"
+      />
+      <img
+        src="/franfinance.svg"
+        class="franfinance-logo absolute finance-logo-container"
+      />
     </div>
   </div>
   <style>
     .integration-content {
       max-width: 600px;
     }
-    .securisation-illustration > img {
-      height: 450px;
+    .integration-illustration {
+      position: relative;
+    }
+    .integration-image {
+      height: 350px;
       border-radius: var(--border-radius-md);
+    }
+    .integration-part {
+      position: absolute;
+      bottom: -8px;
+      left: -8px;
+      border-radius: var(--border-radius-md);
+    }
+    .finance-logo-container {
+      border-radius: var(--border-radius-sm);
+      padding: var(--space-2);
+      box-shadow: var(--box-shadow-sm);
+      background: white;
+    }
+    .sofinco-logo {
+      left: -20%;
+      top: 10%;
+    }
+    .cofidis-logo {
+      right: -15%;
+      top: 15%;
+    }
+
+    .franfinance-logo {
+      right: -15%;
+      bottom: 20%;
     }
   </style>
 </div>

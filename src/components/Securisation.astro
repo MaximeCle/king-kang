@@ -1,7 +1,8 @@
 <div class="block securisation-block">
   <div class="stack-row gap-8">
     <div class="securisation-illustration">
-      <img src="/signature.jpg" />
+      <img src="/lock.png" class="lock-illustration" />
+      <img src="/signature.jpg" class="signature-image" />
     </div>
     <div class="stack-column gap-4 flex-justify-center">
       <h3>
@@ -27,13 +28,22 @@
   <style>
     .securisation-block {
       border-bottom: 1px solid var(--color-border);
+      margin-top: var(--space-5);
     }
     .securisation-illustration {
       padding: var(--space-5);
       background: var(--color-background-light);
       border-radius: var(--border-radius-md);
+      position: relative;
     }
-    .securisation-illustration > img {
+
+    .lock-illustration {
+      position: absolute;
+      top: 0;
+      left: 20px;
+      transform: translateY(-60%);
+    }
+    .signature-image {
       height: 450px;
       border-radius: var(--border-radius-md);
     }
