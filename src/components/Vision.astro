@@ -2,11 +2,11 @@
 import { visionItems } from "../content";
 ---
 
-<section class="full-width-block block vision-section">
+<section class="full-width-block block vision-section" data-theme="dark">
   <div class="light-ellipse"></div>
   <div class="container container-vision">
     <div class="stack-column gap-5">
-      <div class="stack-column gap-2">
+      <div class="stack-column gap-2 fade-in">
         <h5 class="surtitle">Notre vision</h5>
         <h2 class="title-light">La dématérialisation</h2>
         <p class="vision-description">
@@ -16,7 +16,7 @@ import { visionItems } from "../content";
           succès à long terme des entreprises :
         </p>
       </div>
-      <div class="vision-grid" style={{ zIndex: 3 }}>
+      <div class="vision-grid fade-in" style={{ zIndex: 3 }}>
         {
           visionItems.map((item, index) => (
             <div class="vision-grid-item">

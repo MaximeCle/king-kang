@@ -1,0 +1,58 @@
+---
+export interface Props {
+  image: string;
+  title: string;
+  date?: string;
+  description?: string;
+}
+
+const { image, title, date, description } = Astro.props;
+---
+
+<a class="article-presentation-container">
+  <article class="stack-column gap-1-5 flex-1">
+    <div class="image-container">
+      <img src={image} alt={title} class="image-article" />
+    </div>
+    <p class="date-article">
+      {date}
+    </p>
+
+    <h3 class="article-title line-clamp-3">
+      {title}
+    </h3>
+    <p class="article-description line-clamp-3">
+      {description}
+    </p>
+  </article>
+</a>
+
+<style>
+  .article-presentation-container {
+    cursor: pointer;
+  }
+  .image-container {
+    height: 200px;
+  }
+  .image-article {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius-md);
+  }
+  .date-article {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-1);
+    line-height: 1;
+  }
+  .article-title {
+    line-height: 1.3;
+  }
+  .article-description {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+  }
+</style>

@@ -177,6 +177,21 @@ button:hover {
   background: var(--color-white-hover);
 }
 
+.button-ghost {
+  background: transparent;
+  padding: var(--space-1-5) var(--space-2-5);
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.button-ghost:hover {
+  background: rgba(21, 90, 138, 0.1);
+}
+
 .title-light {
   color: white;
 }

@@ -1,33 +1,38 @@
-<header class="header menu-container">
-  <div class="logo">
-    <a href="/" class="logo-link">
-      <img src="/logo-king-kang.svg" />
-      <p>King Kang</p>
-    </a>
-  </div>
-  <div class="stack-row gap-5">
-    <nav class="stack-row" style={{ alignItems: "center" }}>
-      <ul class="menu">
-        <li>
-          <a href="/" class="menu-item" style={{ fontWeight: "700" }}>
-            Accueil
-          </a>
-        </li>
-        <li>
-          <a href="/" class="menu-item"> Fonctionnalités </a>
-        </li>
-        <li>
-          <a href="/" class="menu-item"> Prix </a>
-        </li>
-        <li>
-          <a href="/blog" class="menu-item"> Blog </a>
-        </li>
-        <li>
-          <a href="/contact" class="menu-item"> Contact </a>
-        </li>
-      </ul>
-    </nav>
-    <button class="button">Se connecter</button>
+<header id="header" class="header header-transparent header-content-white">
+  <div class="menu-container">
+    <div class="logo">
+      <a href="/" class="logo-link">
+        <div class="logo-image-container">
+          <img src="/logo-king-kang.svg" class="logo-white" />
+          <img src="/king-kang-logo-grey.svg" class="logo-grey" />
+        </div>
+        <p>King Kang</p>
+      </a>
+    </div>
+    <div class="stack-row gap-5">
+      <nav class="stack-row" style={{ alignItems: "center" }}>
+        <ul class="menu">
+          <li>
+            <a href="/" class="menu-item" style={{ fontWeight: "700" }}>
+              Accueil
+            </a>
+          </li>
+          <li>
+            <a href="/" class="menu-item"> Fonctionnalités </a>
+          </li>
+          <li>
+            <a href="/" class="menu-item"> Prix </a>
+          </li>
+          <li>
+            <a href="/blog" class="menu-item"> Blog </a>
+          </li>
+          <li>
+            <a href="/contact" class="menu-item"> Contact </a>
+          </li>
+        </ul>
+      </nav>
+      <button class="button">Se connecter</button>
+    </div>
   </div>
 </header>
 
@@ -36,43 +41,102 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
     align-items: center;
-    padding-top: var(--space-2);
-    padding-bottom: var(--space-2-5);
+    padding-top: var(--space-1);
+    padding-bottom: var(--space-1-5);
     padding-left: var(--space-2-5);
     padding-right: var(--space-2-5);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease;
+  }
+
+  .header-transparent {
+    background: transparent;
+    color: white;
+  }
+
+  .header-white {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .header-content-white {
+    color: white;
+  }
+
+  .header-content-primary {
+    color: var(--color-text-primary);
+  }
+
+  .hidden {
+    transform: translateY(-100%);
+  }
+
+  .logo-grey {
+    display: none;
+  }
+
+  .header-content-primary .logo-grey {
+    display: inline;
+  }
+
+  .header-content-primary .logo-white {
+    display: none;
+  }
+
+  .logo-image-container {
+    width: 40px;
+    margin-right: var(--space-2);
   }
 
   .logo-link {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: inherit;
     font-size: 20px;
     opacity: 0.8;
   }
-  .logo-link > img {
-    margin-right: var(--space-2);
-    height: 56px;
+  .logo-image-container > img {
+    height: 52px;
   }
 
-  /* .menu-container {
+  .menu-container {
     max-width: 1380px;
-  } */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    align-items: center;
+    flex: 1;
+  }
 
   .menu {
     display: flex;
     gap: var(--space-6);
-    color: #fff;
+    color: inherit;
     align-items: "center";
     font-size: var(--font-size-sm);
   }
 
   .menu-item {
-    color: #fff;
+    color: inherit;
     font-weight: 300;
     text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .menu-item:hover {
+    opacity: 0.65;
   }
 
   @media (min-width: 2000px) {
@@ -83,3 +147,58 @@
     }
   }
 </style>
+
+<script>
+  const header = document.getElementById("header");
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      header?.classList.add("header-white");
+      header?.classList.remove("header-transparent");
+    } else {
+      header?.classList.add("header-transparent");
+      header?.classList.remove("header-white");
+    }
+
+    if (window.scrollY > lastScrollY) {
+      header?.classList.add("hidden");
+    } else {
+      header?.classList.remove("hidden");
+    }
+    lastScrollY = window.scrollY;
+  });
+
+  const zones = document.querySelectorAll<HTMLElement>("[data-theme]");
+
+  window.addEventListener("scroll", () => {
+    let currentZone = [...zones].find((zone) => {
+      const rect = zone.getBoundingClientRect();
+      return rect.top <= 100 && rect.bottom >= 100;
+    });
+
+    if (currentZone?.dataset?.theme === "dark") {
+      header?.classList.add("header-content-white");
+      header?.classList.remove("header-content-primary");
+    } else {
+      header?.classList.add("header-content-primary");
+      header?.classList.remove("header-content-white");
+    }
+  });
+
+  const faders = document.querySelectorAll<HTMLElement>(".fade-in");
+
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 },
+  );
+
+  faders.forEach((el) => fadeObserver.observe(el));
+</script>

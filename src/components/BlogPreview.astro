@@ -1,9 +1,35 @@
-<section class="block">
-  <div class="stack-column gap-2">
+---
+import ArticlePresentation from "./ArticlePresentation.astro";
+---
+
+<section class="block stack-column gap-4" data-theme="light">
+  <div class="stack-column gap-2 fade-in">
     <h5 class="surtitle">Actualités</h5>
     <h2>Notre blog</h2>
   </div>
-  <div class="blog-content stack-row flex-align-center"></div>
+  <div class="blog-content stack-row flex-align-center gap-4 fade-in">
+    <ArticlePresentation
+      image="/signature.jpg"
+      title="Passer à une architecture dématérialisé"
+      date="20 Mai 2024"
+      description="Découvrez comment la dématérialisation des factures peut réduire les coûts administratifs et améliorer l'efficacité opérationnelle."
+    />
+    <ArticlePresentation
+      image="/signature.jpg"
+      title="Passer à une architecture dématérialisé"
+      date="20 Mai 2024"
+      description="Découvrez comment la dématérialisation des factures peut réduire les coûts administratifs et améliorer l'efficacité opérationnelle."
+    />
+    <ArticlePresentation
+      image="/signature.jpg"
+      title="Passer à une architecture dématérialisé"
+      date="20 Mai 2024"
+      description="Découvrez comment la dématérialisation des factures peut réduire les coûts administratifs et améliorer l'efficacité opérationnelle."
+    />
+  </div>
+  <div class="flex-justify-center">
+    <a class="button-ghost" href="/blog"> Voir plus </a>
+  </div>
 </section>
 
 <style></style>
