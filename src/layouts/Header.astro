@@ -18,10 +18,10 @@
             </a>
           </li>
           <li>
-            <a href="/" class="menu-item"> Fonctionnalités </a>
+            <a href="#fonctionnalités" class="menu-item"> Fonctionnalités </a>
           </li>
           <li>
-            <a href="/" class="menu-item"> Prix </a>
+            <a href="#prix" class="menu-item"> Prix </a>
           </li>
           <li>
             <a href="/blog" class="menu-item"> Blog </a>
@@ -115,9 +115,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
     align-items: center;
     flex: 1;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .menu {
@@ -151,6 +152,16 @@
 <script>
   const header = document.getElementById("header");
   let lastScrollY = window.scrollY;
+  let ignoreScroll = false;
+
+  // On veut éviter de cacher le menu au scroll via une ancre
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      ignoreScroll = true;
+      // On arrête d'ignorer après un petit délai
+      setTimeout(() => (ignoreScroll = false), 800);
+    });
+  });
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > 100) {
@@ -161,7 +172,7 @@
       header?.classList.remove("header-white");
     }
 
-    if (window.scrollY > lastScrollY) {
+    if (window.scrollY > lastScrollY && !ignoreScroll) {
       header?.classList.add("hidden");
     } else {
       header?.classList.remove("hidden");

@@ -51,6 +51,10 @@
     0 16px 16px hsl(0deg 0% 0% / 0.055);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   background: #fff;
@@ -97,6 +101,10 @@ h3 {
 
 h4 {
   font-size: var(--font-size-lg);
+}
+
+.gap-0-5 {
+  gap: 4px;
 }
 
 .gap-1 {

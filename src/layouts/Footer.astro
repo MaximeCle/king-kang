@@ -1,41 +1,78 @@
 <footer class="footer">
-  <div class="container stack-row flex-justify-between footer-content">
-    <div class="stack-column gap-4">
-      <div class="stack-column gap-2">
-        <img src="/king-kang-logo-grey.svg" class="logo-footer" />
-        <h4 class="text-logo">King Kang</h4>
+  <div class="container stack-column gap-3">
+    <div class="stack-row flex-justify-between footer-content">
+      <div class="stack-column gap-3 flex-justify-between">
+        <div class="stack-column gap-1">
+          <img src="/king-kang-logo-grey.svg" class="logo-footer" />
+          <h4 class="text-logo">King Kang</h4>
+        </div>
+
+        <div class="stack-row gap-1">
+          <img src="/flag-france.svg" />
+          <p class="subtext-footer">Données hébergées en france</p>
+        </div>
       </div>
-      <div class="stack-row gap-1">
-        <img src="/flag-france.svg" />
-        <p class="subtext-footer">Données hébergées en france</p>
+
+      <div class="stack-row gap-8">
+        <div class="stack-column gap-1">
+          <h5 class="title-list">Navigation</h5>
+          <ul class="menu-footer stack-column gap-1">
+            <li>
+              <a href="/" class="menu-item-footer"> Accueil </a>
+            </li>
+            <li>
+              <a href="#fonctionnalités" class="menu-item-footer"
+                >Fonctionnalités
+              </a>
+            </li>
+            <li>
+              <a href="#prix" class="menu-item-footer">Prix</a>
+            </li>
+            <li>
+              <a href="/blog" class="menu-item-footer">Blog</a>
+            </li>
+            <li>
+              <a href="/contact" class="menu-item-footer"> Contact </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="stack-column gap-1 list-footer">
+          <h5 class="title-list">Informations</h5>
+          <ul class="menu-footer stack-column gap-1">
+            <li>
+              <a href="/" class="menu-item-footer"> Mentions Légales </a>
+            </li>
+            <li>
+              <a href="/" class="menu-item-footer"> CGU </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="stack-row flex-justify-between">
+      <p class="subtext-footer"><span id="year"></span></p>
+
+      <div class="stack-row gap-2-5">
+        <a href="/" class="menu-item-footer">
+          <img src="/facebook.svg" class="social-logo" />
+        </a>
+        <a href="/">
+          <img src="/linkedin.svg" />
+        </a>
+        <a href="/">
+          <img src="/x.svg" />
+        </a>
       </div>
     </div>
   </div>
-
-  <!-- <ul class="menu-footer stack-column gap-2 flex-1">
-    <li>
-      <a href="/" class="menu-item" style={{ fontWeight: "700" }}> Accueil </a>
-    </li>
-    <li>
-      <a href="/" class="menu-item"> Fonctionnalités </a>
-    </li>
-    <li>
-      <a href="/" class="menu-item"> Prix </a>
-    </li>
-    <li>
-      <a href="/blog" class="menu-item"> Blog </a>
-    </li>
-    <li>
-      <a href="/contact" class="menu-item"> Contact </a>
-    </li>
-  </ul> -->
 </footer>
 
 <style>
   .footer {
     margin-top: var(--space-xl);
     padding-top: var(--space-6);
-    padding-bottom: var(--space-4);
+    padding-bottom: var(--space-2-5);
     background: var(--color-background-light);
   }
   .logo-footer {
@@ -52,6 +89,37 @@
   }
   .footer-content {
     border-bottom: 1px solid var(--color-border);
-    padding-bottom: var(--space-5);
+    padding-bottom: var(--space-3);
+  }
+  .list-footer {
+    max-width: 400px;
+  }
+  .title-list {
+    font-size: var(--font-size-md);
+    color: var(--color-text-secondary) !important;
+    font-weight: 400 !important;
+  }
+  .menu-item-footer {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    transition: opacity 0.3s ease;
+    font-weight: 700;
+  }
+
+  .infos-item-footer {
+    font-size: var(--font-size-xs);
+  }
+
+  a:hover {
+    opacity: 0.65;
   }
 </style>
+
+<script>
+  const yearElement = document.getElementById("year");
+
+  if (yearElement) {
+    const currentYear: number = new Date().getFullYear();
+    yearElement.textContent = currentYear.toString(); // on convertit en string
+  }
+</script>
