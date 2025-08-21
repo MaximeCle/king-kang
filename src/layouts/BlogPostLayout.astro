@@ -1,0 +1,30 @@
+---
+import Header from "./Header.astro";
+import "../styles/base.css";
+import "../styles/layout.css";
+
+const { frontmatter } = Astro.props;
+---
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body>
+    <Header />
+    <div class="container article-container">
+      <div class="background-blog"></div>
+      <a href="/blog"> ← Retour </a>
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style>
+  .article-container {
+    margin-top: var(--space-xl);
+  }
+</style>

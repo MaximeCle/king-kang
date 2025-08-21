@@ -6,14 +6,13 @@ const posts = await getCollection("blog");
 
 <section class="block stack-column gap-4" data-theme="light">
   <div class="stack-column gap-2 fade-in">
-    <h5 class="surtitle">Actualités</h5>
-    <h2>Notre blog</h2>
+    <h5 class="surtitle">Blog</h5>
+    <h1>Retrouvez nos actualités, des informations pratiques et plus</h1>
   </div>
-  <div class="blog-content stack-row flex-align-center gap-4 fade-in">
+  <div class="blog-list fade-in">
     {
       posts
         .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-        .slice(0, 3) // <-- garde seulement les 3 derniers
         .map((post) => (
           <ArticlePresentation
             link={`/blog/${post.id}/`}
@@ -29,9 +28,12 @@ const posts = await getCollection("blog");
         ))
     }
   </div>
-  <div class="flex-justify-center">
-    <a class="button-ghost" href="/blog"> Voir plus </a>
-  </div>
 </section>
 
-<style></style>
+<style>
+  .blog-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5) var(--space-3-5);
+  }
+</style>

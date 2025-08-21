@@ -3,6 +3,7 @@ import "../styles/base.css";
 import "../styles/layout.css";
 import Header from "../layouts/Header.astro";
 import Footer from "./Footer.astro";
+const path = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -19,6 +20,7 @@ import Footer from "./Footer.astro";
   <body>
     <Header />
     <div class="container">
+      <div class="back-button-container"></div>
       <slot />
     </div>
     <Footer />

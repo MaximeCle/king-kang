@@ -1,15 +1,16 @@
 ---
 export interface Props {
+  link: string;
   image: string;
   title: string;
   date?: string;
   description?: string;
 }
 
-const { image, title, date, description } = Astro.props;
+const { link, image, title, date, description } = Astro.props;
 ---
 
-<a class="article-presentation-container">
+<a class="article-presentation-container" href={link}>
   <article class="stack-column gap-1-5 flex-1">
     <div class="image-container">
       <img src={image} alt={title} class="image-article" />
@@ -17,7 +18,6 @@ const { image, title, date, description } = Astro.props;
     <p class="date-article">
       {date}
     </p>
-
     <h3 class="article-title line-clamp-3">
       {title}
     </h3>

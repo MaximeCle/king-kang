@@ -1,4 +1,28 @@
-<header id="header" class="header header-transparent header-content-white">
+---
+const path = Astro.url.pathname;
+const isBlog = path.startsWith("/blog");
+
+const isActiveItem = (href: string, currentPath: string) => {
+  if (href.startsWith("#")) {
+    return false; // Les ancres seront gérées autrement
+  }
+  if (currentPath === href) {
+    return true;
+  }
+  if (href !== "/" && currentPath.startsWith(href + "/")) {
+    return true;
+  }
+  return false;
+}
+---
+
+<header
+  id="header"
+  class={`header header-transparent ${isBlog ? "header-content-primary" : "header-content-white"}`}
+  style={isBlog
+    ? "border-bottom: 1px solid #e5e5e6;"
+    : "border-bottom: 1px solid rgba(255, 255, 255, 0.1);"}
+>
   <div class="menu-container">
     <div class="logo">
       <a href="/" class="logo-link">
@@ -13,21 +37,37 @@
       <nav class="stack-row" style={{ alignItems: "center" }}>
         <ul class="menu">
           <li>
-            <a href="/" class="menu-item" style={{ fontWeight: "700" }}>
-              Accueil
+            <a href="/" class="menu-item" data-section="accueil"> Accueil </a>
+          </li>
+          <li>
+            <a
+              href="/#fonctionnalités"
+              class="menu-item"
+              data-section="fonctionnalités"
+            >
+              Fonctionnalités
             </a>
           </li>
           <li>
-            <a href="#fonctionnalités" class="menu-item"> Fonctionnalités </a>
+            <a href="/#prix" class="menu-item" data-section="prix"> Prix </a>
           </li>
           <li>
-            <a href="#prix" class="menu-item"> Prix </a>
+            <a
+              href="/blog"
+              class={`menu-item ${isActiveItem("/blog", path) ? "menu-item-active" : ""}`}
+              data-section="blog"
+            >
+              Blog
+            </a>
           </li>
           <li>
-            <a href="/blog" class="menu-item"> Blog </a>
-          </li>
-          <li>
-            <a href="/contact" class="menu-item"> Contact </a>
+            <a
+              href="/contact"
+              class={`menu-item ${isActiveItem("/contact", path) ? "menu-item-active" : ""}`}
+              data-section="contact"
+            >
+              Contact
+            </a>
           </li>
         </ul>
       </nav>
@@ -48,10 +88,9 @@
     z-index: 999;
     align-items: center;
     padding-top: var(--space-1);
-    padding-bottom: var(--space-1-5);
+    padding-bottom: var(--space-1);
     padding-left: var(--space-2-5);
     padding-right: var(--space-2-5);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition:
       transform 0.3s ease,
       background 0.3s ease;
@@ -63,9 +102,10 @@
   }
 
   .header-white {
+    
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
@@ -106,6 +146,7 @@
     font-size: 20px;
     opacity: 0.8;
   }
+
   .logo-image-container > img {
     height: 52px;
   }
@@ -125,19 +166,29 @@
     display: flex;
     gap: var(--space-6);
     color: inherit;
-    align-items: "center";
+    align-items: center;
     font-size: var(--font-size-sm);
   }
 
   .menu-item {
     color: inherit;
+    mix-blend-mode: difference;
     font-weight: 300;
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease,  font-weight: 0.2s ease;
   }
 
   .menu-item:hover {
     opacity: 0.65;
+  }
+
+  .menu-item-active {
+    font-weight: 600;
+    opacity: 1;
+  }
+
+  .menu-item-active:hover {
+    opacity: 0.85;
   }
 
   @media (min-width: 2000px) {
@@ -151,19 +202,10 @@
 
 <script>
   const header = document.getElementById("header");
-  let lastScrollY = window.scrollY;
-  let ignoreScroll = false;
+  const sections = ["accueil", "fonctionnalités", "prix"];
 
-  // On veut éviter de cacher le menu au scroll via une ancre
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", () => {
-      ignoreScroll = true;
-      // On arrête d'ignorer après un petit délai
-      setTimeout(() => (ignoreScroll = false), 1500);
-    });
-  });
-
-  window.addEventListener("scroll", () => {
+  // Gestion du background du header au scroll
+  const updateHeaderBackground = () => {
     if (window.scrollY > 100) {
       header?.classList.add("header-white");
       header?.classList.remove("header-transparent");
@@ -171,19 +213,12 @@
       header?.classList.add("header-transparent");
       header?.classList.remove("header-white");
     }
+  };
 
-    if (window.scrollY > lastScrollY && !ignoreScroll) {
-      header?.classList.add("hidden");
-    } else {
-      header?.classList.remove("hidden");
-    }
-    lastScrollY = window.scrollY;
-  });
-
-  const zones = document.querySelectorAll<HTMLElement>("[data-theme]");
-
-  window.addEventListener("scroll", () => {
-    let currentZone = [...zones].find((zone) => {
+  // Gestion du thème (couleur du texte) selon les zones
+  const updateHeaderTheme = () => {
+    const zones = document.querySelectorAll<HTMLElement>("[data-theme]");
+    const currentZone = [...zones].find((zone) => {
       const rect = zone.getBoundingClientRect();
       return rect.top <= 100 && rect.bottom >= 100;
     });
@@ -195,21 +230,74 @@
       header?.classList.add("header-content-primary");
       header?.classList.remove("header-content-white");
     }
+  };
+
+  // Gestion de l'état actif des items du menu selon la section visible
+  const updateActiveSection = () => {
+    const currentPath = window.location.pathname;
+
+    // Ne gérer les sections que sur la page d'accueil
+    if (currentPath !== "/") return;
+
+    const menuItems = document.querySelectorAll(".menu-item");
+    let activeSection = null;
+
+    // Détecter la section actuellement visible
+    for (const sectionId of sections) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (
+          rect.top <= window.innerHeight * 0.5 &&
+          rect.bottom >= window.innerHeight * 0.3
+        ) {
+          activeSection = sectionId;
+          break;
+        }
+      }
+    }
+
+    // Mettre à jour les classes actives
+    menuItems.forEach((item) => {
+      const sectionData = item.getAttribute("data-section");
+
+      if (sectionData && sections.includes(sectionData)) {
+        if (sectionData === activeSection) {
+          item.classList.add("menu-item-active");
+        } else {
+          item.classList.remove("menu-item-active");
+        }
+      }
+    });
+  };
+
+  // Observer pour les animations fade-in
+  const initFadeAnimations = () => {
+    const faders = document.querySelectorAll(".fade-in");
+    const fadeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    faders.forEach((el) => fadeObserver.observe(el));
+  };
+
+  window.addEventListener("scroll", () => {
+    updateHeaderBackground();
+    updateHeaderTheme();
+    updateActiveSection();
   });
 
-  const faders = document.querySelectorAll<HTMLElement>(".fade-in");
-
-  const fadeObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          fadeObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2 },
-  );
-
-  faders.forEach((el) => fadeObserver.observe(el));
+  document.addEventListener("DOMContentLoaded", () => {
+    updateActiveSection();
+    initFadeAnimations();
+    setTimeout(updateActiveSection, 100);
+  });
 </script>

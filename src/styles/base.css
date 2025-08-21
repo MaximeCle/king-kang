@@ -200,6 +200,10 @@ button:hover {
   background: rgba(21, 90, 138, 0.1);
 }
 
+.align-center {
+  text-align: center;
+}
+
 .title-light {
   color: white;
 }
