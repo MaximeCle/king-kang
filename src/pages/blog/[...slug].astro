@@ -16,11 +16,10 @@ const { Content } = await render(post);
 
 <BlogPostLayout frontmatter={post.data}>
   <div class="stack-column gap-3">
-    <div class="stack-column gap-1 fade-in align-center">
+    <div class="stack-column gap-2 fade-in align-center">
       <h5 class="surtitle">Blog</h5>
       <h1>{post.data.title}</h1>
-
-      <p>
+      <p class="pubDate">
         {
           post.data.pubDate
             .toLocaleDateString("fr-FR", {
@@ -35,24 +34,8 @@ const { Content } = await render(post);
       <img src={post.data.image} class="image-article" />
     </div>
 
-    <div class="article-content-container fade-in">
+    <div class="article-content">
       <Content />
     </div>
   </div>
 </BlogPostLayout>
-
-<style>
-  .article-content-container {
-    max-width: 650px;
-    margin: 0 auto;
-  }
-  .header-article {
-    text-align: center;
-  }
-  .article-content-container p {
-    line-height: 1.8;
-  }
-  .article-content-container li {
-    line-height: 1.8;
-  }
-</style>

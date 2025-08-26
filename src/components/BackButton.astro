@@ -1,0 +1,38 @@
+---
+// src/components/BackButton.astro
+interface Props {
+  backupUrl: string; // URL de secours si l'historique est vide
+}
+
+const { backupUrl } = Astro.props;
+---
+
+<button
+  type="button"
+  onclick={`s
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = '${backupUrl}';
+    }
+  `}
+  class="back-button"
+>
+  ← Retour
+</button>
+
+<style>
+  .back-button {
+    padding: 0.5rem 1rem;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+  }
+
+  .back-button:hover {
+    background-color: #e0e0e0;
+  }
+</style>

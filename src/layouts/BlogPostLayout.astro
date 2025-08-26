@@ -1,7 +1,10 @@
 ---
 import Header from "./Header.astro";
 import "../styles/base.css";
+import "../styles/blog.css";
 import "../styles/layout.css";
+import Footer from "./Footer.astro";
+import Bandeau from "../components/Bandeau.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -15,16 +18,16 @@ const { frontmatter } = Astro.props;
   </head>
   <body>
     <Header />
-    <div class="container article-container">
+    <div class="article-container">
       <div class="background-blog"></div>
-      <a href="/blog"> ← Retour </a>
-      <slot />
+      <div class="stack-column gap-3">
+        <a href="/blog" class="back-button">Retour</a>
+        <slot />
+      </div>
     </div>
+    <div class="container">
+      <Bandeau />
+    </div>
+    <Footer />
   </body>
 </html>
-
-<style>
-  .article-container {
-    margin-top: var(--space-xl);
-  }
-</style>
