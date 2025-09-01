@@ -5,6 +5,7 @@ import "../styles/blog.css";
 import "../styles/layout.css";
 import Footer from "./Footer.astro";
 import Bandeau from "../components/Bandeau.astro";
+import BackButton from "../components/BackButton.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -21,7 +22,7 @@ const { frontmatter } = Astro.props;
     <div class="article-container">
       <div class="background-blog"></div>
       <div class="stack-column gap-3">
-        <a href="/blog" class="back-button">Retour</a>
+        <BackButton />
         <slot />
       </div>
     </div>

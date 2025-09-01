@@ -1,8 +1,8 @@
 ---
-title: "Mon troisième article de blog"
+title: "La dématérialisation des documents"
 pubDate: 2022-07-01
 description: "Il s'agit du premier article de mon nouveau blog Astro."
-image: "https://astro.build/_astro/whats-new-shared.-IVrxKgH_1pI1fm.webp"
+image: "https://www.axgroup.fr/wp-content/uploads/sites/39/2022/06/ebp-image-blog-renforcer-demat-bulletins-documents-rh-496336938-1500x995px.jpg"
 #   alt: "Le logo Astro sur un fond sombre avec une lueur rose."
 ---
 

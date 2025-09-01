@@ -185,19 +185,14 @@ button:hover {
   background: var(--color-white-hover);
 }
 
-.button-ghost {
-  background: transparent;
-  padding: var(--space-1-5) var(--space-2-5);
-  font-size: var(--font-size-sm);
-  color: var(--color-primary);
-  border-radius: 6px;
+.link {
   cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s;
+  color: var(--color-primary);
+  transition: opacity 0.3s ease;
 }
 
-.button-ghost:hover {
-  background: rgba(21, 90, 138, 0.1);
+.link:hover {
+  opacity: 0.75;
 }
 
 .align-center {

@@ -1,8 +1,8 @@
 ---
-title: "Mon deuxième article de blog"
+title: "La facturation en entreprise : ce que vous devez savoir"
 pubDate: 2022-07-01
-description: "Il s'agit du premier article de mon nouveau blog Astro."
-image: "https://astro.build/_astro/whats-new-shared.-IVrxKgH_1pI1fm.webp"
+description: "Une facture constitue non seulement une preuve juridique des transactions, mais également un document essentiel pour la comptabilité et la fiscalité. Cet article explore en détail les aspects fondamentaux de la facturation en entreprise."
+image: "https://images.ctfassets.net/97bcek6xbwhd/1V7eV5Q5Cic0n7XoooQkio/c703adaa90202f06609e8d4adcd955bd/dd8c92e1-1a6a-4230-b811-dbc30033f060_facture-1.png?w=680&fm=webp"
 #   alt: "Le logo Astro sur un fond sombre avec une lueur rose."
 ---
 

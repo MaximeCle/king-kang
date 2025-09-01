@@ -1,8 +1,8 @@
 ---
-title: "Mon quatrième article de blog"
+title: "Bon de commande : Définition, concept et modèle"
 pubDate: 2022-07-01
 description: "Il s'agit du premier article de mon nouveau blog Astro."
-image: "https://astro.build/_astro/whats-new-shared.-IVrxKgH_1pI1fm.webp"
+image: "https://fr.mobiletransaction.org/wp-content/uploads/sites/11/2022/05/bon-de-commande.jpg.webp"
 #   alt: "Le logo Astro sur un fond sombre avec une lueur rose."
 ---
 
