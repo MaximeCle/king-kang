@@ -21,6 +21,15 @@
   margin-right: -50dvw;
 }
 
+.full-page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
 .absolute {
   position: absolute;
 }
@@ -62,6 +71,11 @@
 .flex-justify-center {
   display: flex;
   justify-content: center;
+}
+
+.flex-justify-end {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .flex-1 {
@@ -109,10 +123,8 @@
   left: 0;
   z-index: -2;
 }
-@media (min-width: 2000px) {
-  .background-blog {
-    background-image: url("/KK-effect-white-2560.svg");
-  }
+.contact-body {
+  background-color: var(--color-background-dark);
 }
 
 .line-clamp-3 {
@@ -125,5 +137,8 @@
 @media (min-width: 2000px) {
   .container {
     max-width: 1280px;
+  }
+  .background-blog {
+    background-image: url("/KK-effect-white-2560.svg");
   }
 }

@@ -1,0 +1,33 @@
+---
+import Bandeau from "../components/Bandeau.astro";
+import BlogList from "../components/BlogList.astro";
+import ContactBox from "../components/contactBox.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <div data-theme="dark" class="full-page-overlay"></div>
+  <div class="background-contact"></div>
+  <ContactBox />
+</Layout>
+
+<style>
+  .background-contact {
+    background-image: url("/KK-effect-dark-1920.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 840px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+  }
+
+  @media (min-width: 2000px) {
+    .background-contact {
+      background-image: url("/KK-effect-dark-2560.svg");
+    }
+  }
+</style>

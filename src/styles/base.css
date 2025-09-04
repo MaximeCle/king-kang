@@ -11,10 +11,12 @@
   --color-text-secondary: #52525b;
   --color-background-primary: #274156;
   --color-background-light: #f9f9f9;
+  --color-background-dark: #112f45;
   --color-white-hover: #e3e3e7;
   --color-border: #e5e5e6;
   --color-success-content: #1e7b41;
   --color-success-background: #f0fff5;
+  --color-input: #536e86;
   --space-0-5: 4px;
   --space-1: 8px;
   --space-1-5: 12px;
@@ -53,6 +55,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -103,6 +106,38 @@ h4 {
   font-size: var(--font-size-lg);
 }
 
+p {
+  line-height: 1.8;
+}
+
+label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-border);
+}
+
+input {
+  border: none;
+  box-shadow: none;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-input);
+  padding: var(--space-1-5);
+  color: white;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+textarea {
+  border: none;
+  box-shadow: none;
+  background-color: var(--color-input);
+  height: 120px;
+  border-radius: var(--border-radius-sm);
+  resize: none;
+  padding: var(--space-1-5);
+  color: white;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
 .gap-0-5 {
   gap: 4px;
 }
@@ -149,10 +184,6 @@ h4 {
 
 .gap-8 {
   gap: 64px;
-}
-
-p {
-  line-height: 1.8;
 }
 
 button {
@@ -230,7 +261,7 @@ button:hover {
     90deg,
     var(--color-primary),
     var(--color-primary-hover)
-  ); /* dégradé */
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

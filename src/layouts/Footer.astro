@@ -1,67 +1,118 @@
-<footer class="footer">
+---
+const path = Astro.url.pathname;
+const isContact = path.startsWith("/contact");
+const footerClasses = {
+  footer: isContact ? "footer footer-contact" : "footer",
+  content: isContact ? "footer-content footer-content-white" : "footer-content",
+  textPrimary: isContact ? "footer-text-primary-white" : "",
+  textSecondary: isContact ? "footer-text-secondary-white" : "",
+};
+---
+
+<footer class={footerClasses.footer}>
   <div class="container stack-column gap-3">
-    <div class="stack-row flex-justify-between footer-content">
+    <div class=`stack-row flex-justify-between  ${footerClasses.content}`>
       <div class="stack-column gap-3 flex-justify-between">
         <div class="stack-column gap-1">
-          <img src="/king-kang-logo-grey.svg" class="logo-footer" />
-          <h4 class="text-logo">King Kang</h4>
+          <img
+            src=`/${isContact? "logo-king-kang.svg" : "king-kang-logo-grey.svg"}`
+            class="logo-footer"
+          />
+          <h4 class=`text-logo ${footerClasses.textPrimary}`>King Kang</h4>
         </div>
 
         <div class="stack-row gap-1">
           <img src="/flag-france.svg" />
-          <p class="subtext-footer">Données hébergées en france</p>
+          <p class=`subtext-footer ${footerClasses.textSecondary}`>
+            Données hébergées en france
+          </p>
         </div>
       </div>
 
       <div class="stack-row gap-8">
         <div class="stack-column gap-1">
-          <h5 class="title-list">Navigation</h5>
+          <h5 class=`title-list ${footerClasses.textSecondary}`>Navigation</h5>
           <ul class="menu-footer stack-column gap-1">
             <li>
-              <a href="/" class="menu-item-footer"> Accueil </a>
+              <a
+                href="/"
+                class=`menu-item-footer ${footerClasses.textSecondary}`
+              >
+                Accueil
+              </a>
             </li>
             <li>
-              <a href="#fonctionnalités" class="menu-item-footer"
+              <a
+                href="#fonctionnalités"
+                class=`menu-item-footer ${footerClasses.textSecondary}`
                 >Fonctionnalités
               </a>
             </li>
             <li>
-              <a href="#prix" class="menu-item-footer">Prix</a>
+              <a
+                href="#prix"
+                class=`menu-item-footer ${footerClasses.textSecondary}`>Prix</a
+              >
             </li>
             <li>
-              <a href="/blog" class="menu-item-footer">Blog</a>
+              <a
+                href="/blog"
+                class=`menu-item-footer ${footerClasses.textSecondary}`>Blog</a
+              >
             </li>
             <li>
-              <a href="/contact" class="menu-item-footer"> Contact </a>
+              <a
+                href="/contact"
+                class=`menu-item-footer ${footerClasses.textSecondary}`
+              >
+                Contact
+              </a>
             </li>
           </ul>
         </div>
 
         <div class="stack-column gap-1 list-footer">
-          <h5 class="title-list">Informations</h5>
+          <h5 class=`title-list ${footerClasses.textSecondary}`>
+            Informations
+          </h5>
           <ul class="menu-footer stack-column gap-1">
             <li>
-              <a href="/" class="menu-item-footer"> Mentions Légales </a>
+              <a
+                href="/"
+                class=`menu-item-footer ${footerClasses.textSecondary}`
+              >
+                Mentions Légales
+              </a>
             </li>
             <li>
-              <a href="/" class="menu-item-footer"> CGU </a>
+              <a
+                href="/"
+                class=`menu-item-footer ${footerClasses.textSecondary}`
+              >
+                CGU
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </div>
     <div class="stack-row flex-justify-between">
-      <p class="subtext-footer"><span id="year"></span></p>
+      <p class=`subtext-footer  ${footerClasses.textSecondary}`>
+        <span id="year"></span>
+      </p>
 
       <div class="stack-row gap-2-5">
-        <a href="/" class="menu-item-footer">
-          <img src="/facebook.svg" class="social-logo" />
+        <a href="/" class=`menu-item-footer ${footerClasses.textSecondary}`>
+          <img
+            src=`/${isContact ? "facebook-white.svg": "facebook.svg"}`
+            class="social-logo"
+          />
         </a>
         <a href="/">
-          <img src="/linkedin.svg" />
+          <img src=`/${isContact ? "linkedin-white.svg":"linkedin.svg"}` />
         </a>
         <a href="/">
-          <img src="/x.svg" />
+          <img src=`/${isContact ? "x-white.svg" : "x.svg"}` />
         </a>
       </div>
     </div>
@@ -111,6 +162,22 @@
     font-size: var(--font-size-xs);
   }
 
+  .footer-content-white {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-contact {
+    background: #082439;
+  }
+
+  .footer-text-primary-white {
+    color: white !important;
+  }
+
+  .footer-text-secondary-white {
+    color: var(--color-border) !important;
+  }
+
   a:hover {
     opacity: 0.65;
   }
@@ -121,6 +188,6 @@
 
   if (yearElement) {
     const currentYear: number = new Date().getFullYear();
-    yearElement.textContent = currentYear.toString(); // on convertit en string
+    yearElement.textContent = currentYear.toString();
   }
 </script>

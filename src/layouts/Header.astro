@@ -2,9 +2,10 @@
 const path = Astro.url.pathname;
 const isBlog = path.startsWith("/blog");
 
+
 const isActiveItem = (href: string, currentPath: string) => {
   if (href.startsWith("#")) {
-    return false; // Les ancres seront gérées autrement
+    return false; 
   }
   if (currentPath === href) {
     return true;
@@ -14,6 +15,7 @@ const isActiveItem = (href: string, currentPath: string) => {
   }
   return false;
 }
+
 ---
 
 <header
@@ -102,7 +104,6 @@ const isActiveItem = (href: string, currentPath: string) => {
   }
 
   .header-white {
-    
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -201,6 +202,7 @@ const isActiveItem = (href: string, currentPath: string) => {
 </style>
 
 <script>
+
   const header = document.getElementById("header");
   const sections = ["accueil", "fonctionnalités", "prix"];
 

@@ -4,6 +4,7 @@ import "../styles/layout.css";
 import Header from "../layouts/Header.astro";
 import Footer from "./Footer.astro";
 const path = Astro.url.pathname;
+const isContact = path.startsWith("/contact");
 ---
 
 <!doctype html>
@@ -16,14 +17,11 @@ const path = Astro.url.pathname;
       content={Astro.generator}
     /><title>King Kang - Ma relation client dématérialisée</title></head
   >
-
-  <body>
+  <body class=`${isContact && "contact-body"}`>
     <Header />
     <div class="container">
-      <div class="link-container"></div>
       <slot />
     </div>
     <Footer />
   </body>
-  <style></style>
 </html>

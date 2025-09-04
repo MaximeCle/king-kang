@@ -1,0 +1,91 @@
+---
+
+---
+
+<div class="contact-box-container stack-row gap-8 fade-in">
+  <div class="cooordonnes-container">
+    <h3 class="subtitle-light">Contactez-nous</h3>
+    <div class="coordonnees-content stack-column gap-2">
+      <p class="coordonnees-title">Nos coordonnées</p>
+      <div class="stack-column">
+        <p class="label-coordonnees">Téléphone</p>
+        <p class="coordonnees">06 09 54 21 74</p>
+      </div>
+      <div class="stack-column">
+        <p class="label-coordonnees">Adresse email</p>
+        <p class="coordonnees">kingkang@gmail.fr</p>
+      </div>
+      <div class="stack-column">
+        <p class="label-coordonnees">Adresse postale</p>
+        <p class="coordonnees">
+          1&2 bis, Rue Antoine Laurent de Lavoisie 76300 Sotteville-lès-Rouen
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="form-container stack-column gap-4">
+    <div class="stack-column gap-0-5">
+      <label>Nom</label>
+      <input />
+    </div>
+    <div class="stack-column gap-0-5">
+      <label>Prénom</label>
+      <input />
+    </div>
+    <div class="stack-column gap-0-5">
+      <label>Adresse email</label>
+      <input />
+    </div>
+    <div class="stack-column gap-0-5">
+      <label>Message</label>
+      <textarea></textarea>
+    </div>
+    <div class="flex-justify-end">
+      <button class="button">Envoyer le message</button>
+    </div>
+  </div>
+  <img src="/kangaroo.svg" class="kangaroo-illustration" />
+</div>
+
+<style>
+  .contact-box-container {
+    padding: var(--space-6) var(--space-8);
+    background-color: rgba(88, 111, 131, 0.25);
+    border-radius: var(--border-radius-md);
+    border: 1px solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    max-width: 1080px;
+    margin: var(--space-xl) auto;
+    position: relative;
+  }
+  .coordonnees-title {
+    color: var(--color-border);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+  }
+  .label-coordonnees {
+    font-weight: 600;
+    color: var(--color-border);
+    font-size: var(--font-size-sm);
+  }
+  .coordonnees {
+    color: var(--color-border);
+    font-size: var(--font-size-sm);
+  }
+  .coordonnees-content {
+    margin-top: var(--space-8);
+  }
+  .cooordonnes-container {
+    max-width: 350px;
+  }
+  .form-container {
+    flex: 1;
+  }
+  .kangaroo-illustration {
+    position: absolute;
+    bottom: 0;
+    left: 64;
+    opacity: 0.3;
+    height: 58px;
+  }
+</style>

@@ -13,7 +13,7 @@ const { link, image, title, date, description } = Astro.props;
 <a class="article-presentation-container" href={link}>
   <article class="stack-column gap-1-5 flex-1">
     <div class="image-container">
-      <img src={image} alt={title} class="image-article" />
+      <img src={image} alt={title} class="image-article" loading="lazy" />
     </div>
     <p class="date-article">
       {date}
