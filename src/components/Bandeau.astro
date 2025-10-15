@@ -1,11 +1,12 @@
-<div class="bandeau stack-row flex-justify-between flex-align-center fade-in">
+<div
+  class="bandeau stack-row--mobile-column gap-2-5 flex-justify-between flex-align-center fade-in"
+>
   <div class="stack-column gap-1-5">
     <h3 class="title-light">Simplifier votre gestion</h3>
     <p class="text-main-light sub-text-bandeau">Gérer tout au même endroit</p>
   </div>
-  <div>
-    <a href="/contact" class="button-white">Nous contacter</a>
-  </div>
+
+  <a href="/contact" class="button-white">Nous contacter</a>
 </div>
 <style>
   .bandeau {
@@ -19,5 +20,12 @@
   }
   .sub-text-bandeau {
     font-size: 16px;
+  }
+  @media (max-width: 960px) {
+    .bandeau {
+      padding: var(--space-3-5);
+      margin-left: var(--space-3-5);
+      margin-right: var(--space-3-5);
+    }
   }
 </style>

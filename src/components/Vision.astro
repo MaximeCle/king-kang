@@ -73,5 +73,13 @@ import { visionItems } from "../content/content";
     .container-vision {
       position: relative;
     }
+    @media (max-width: 960px) {
+      .vision-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: var(--space-1-5);
+      }
+    }
   </style>
 </section>

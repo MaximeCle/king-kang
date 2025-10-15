@@ -35,7 +35,7 @@ const isActiveItem = (href: string, currentPath: string) => {
         <p>King Kang</p>
       </a>
     </div>
-    <div class="stack-row gap-5">
+    <div class="stack-row gap-5 actions-menu">
       <nav class="stack-row" style={{ alignItems: "center" }}>
         <ul class="menu">
           <li>
@@ -199,6 +199,13 @@ const isActiveItem = (href: string, currentPath: string) => {
       margin-right: auto;
     }
   }
+
+/* Mobile */
+@media (max-width: 767px) {
+  .actions-menu {
+  display:none;
+  }
+}
 </style>
 
 <script>

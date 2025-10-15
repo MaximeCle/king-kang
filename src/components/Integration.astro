@@ -1,5 +1,5 @@
 <div class="block">
-  <div class="stack-row gap-8 flex-justify-between fade-in">
+  <div class="stack-row--mobile-column gap-8 flex-justify-between fade-in">
     <div class="integration-content stack-column gap-4 flex-justify-center">
       <h3>
         <span class="highlight-text">Intégration</span> d’un module de communication
@@ -38,8 +38,10 @@
     }
     .integration-illustration {
       position: relative;
+      width: fit-content;
     }
     .integration-image {
+      position: relative;
       height: 350px;
       border-radius: var(--border-radius-md);
     }
@@ -47,7 +49,8 @@
       position: absolute;
       bottom: -8px;
       left: -8px;
-      border-radius: var(--border-radius-md);
+      border-radius: var(--border-radius-md) 0 var(--border-radius-md)
+        var(--border-radius-md);
     }
     .finance-logo-container {
       border-radius: var(--border-radius-sm);
@@ -67,6 +70,41 @@
     .franfinance-logo {
       right: -15%;
       bottom: 20%;
+    }
+
+    @media (max-width: 960px) {
+      .integration-image {
+        height: auto;
+        width: 100%;
+      }
+      .finance-logo-container {
+        padding: var(--space-1);
+      }
+      .franfinance-logo {
+        width: 100px;
+        right: -7%;
+      }
+      .cofidis-logo {
+        width: 80px;
+        right: -7%;
+      }
+      .sofinco-logo {
+        width: 80px;
+        left: -7%;
+      }
+      .integration-part {
+        bottom: -1%;
+        left: -2%;
+        width: 90px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .integration-part {
+        bottom: -1%;
+        left: -2%;
+        width: 70px;
+      }
     }
   </style>
 </div>

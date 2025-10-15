@@ -40,4 +40,10 @@ const posts = await getCollection("blog");
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-5) var(--space-3-5);
   }
+
+  @media (max-width: 960px) {
+    .blog-content {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

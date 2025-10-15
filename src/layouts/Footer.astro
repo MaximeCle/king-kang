@@ -11,7 +11,9 @@ const footerClasses = {
 
 <footer class={footerClasses.footer}>
   <div class="container stack-column gap-3">
-    <div class=`stack-row flex-justify-between  ${footerClasses.content}`>
+    <div
+      class=`stack-row--mobile-column flex-justify-between  ${footerClasses.content}`
+    >
       <div class="stack-column gap-3 flex-justify-between">
         <div class="stack-column gap-1">
           <img
@@ -29,7 +31,7 @@ const footerClasses = {
         </div>
       </div>
 
-      <div class="stack-row gap-8">
+      <div class="stack-row--mobile-column gap-8">
         <div class="stack-column gap-1">
           <h5 class=`title-list ${footerClasses.textSecondary}`>Navigation</h5>
           <ul class="menu-footer stack-column gap-1">

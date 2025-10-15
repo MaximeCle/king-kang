@@ -1,5 +1,5 @@
 <div class="block securisation-block">
-  <div class="stack-row gap-8 fade-in">
+  <div class="stack-row--mobile-column gap-8 fade-in">
     <div class="securisation-illustration">
       <img src="/lock.png" class="lock-illustration" />
       <img src="/signature.jpg" class="signature-image" />
@@ -46,6 +46,13 @@
     .signature-image {
       height: 450px;
       border-radius: var(--border-radius-md);
+    }
+
+    @media (max-width: 960px) {
+      .signature-image {
+        height: auto;
+        width: 100%;
+      }
     }
   </style>
 </div>
