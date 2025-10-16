@@ -148,6 +148,9 @@
     padding-top: var(--space-8);
     padding-bottom: var(--space-8);
   }
+  .light-ellipse {
+    height: 550px;
+  }
 }
 
 @media (max-width: 1280px) {

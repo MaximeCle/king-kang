@@ -129,27 +129,6 @@
     border-color: rgba(255, 255, 255, 0.2);
   }
 
-  @media (max-width: 1280px) {
-    .landing-screen-presentation {
-      width: 90vw;
-      height: 45vw;
-    }
-  }
-
-  /* @media (max-width: 1068px) {
-    .landing-screen-presentation {
-      width: 700px;
-      height: 350px;
-    }
-  }
-
-  @media (max-width: 68px) {
-    .landing-screen-presentation {
-      width: 700px;
-      height: 300px;
-    }
-  } */
-
   @media (min-width: 2000px) {
     .landing-screen-presentation {
       width: 1222px;
@@ -157,6 +136,44 @@
     }
     .background-landing {
       background-image: url("/KK-effect-2560.svg");
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .background-landing {
+      background-image: url("/KK-effect-1080.svg");
+      height: 700px;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    .landing-screen-presentation {
+      width: 90vw;
+      height: 45vw;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .background-landing {
+      background-image: url("/KK-effect-600.svg");
+      height: 550px;
+    }
+    .landing-screen-presentation-container {
+      padding: var(--space-1-5);
+      border-radius: var(--border-radius-sm);
+    }
+    .landing-content {
+      margin-top: var(--space-8);
+    }
+    .landing-screen-presentation {
+      width: 90vw;
+      height: 45vw;
+    }
+    .crown-illustration {
+      display: none;
+    }
+    .kangaroo-illustration {
+      display: none;
     }
   }
 </style>
