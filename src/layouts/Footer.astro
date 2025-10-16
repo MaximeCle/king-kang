@@ -14,7 +14,7 @@ const footerClasses = {
     <div
       class=`stack-row--mobile-column flex-justify-between  ${footerClasses.content}`
     >
-      <div class="stack-column gap-3 flex-justify-between">
+      <div class="stack-column gap-3 flex-justify-between infos-footer-box">
         <div class="stack-column gap-1">
           <img
             src=`/${isContact? "logo-king-kang.svg" : "king-kang-logo-grey.svg"}`
@@ -31,7 +31,7 @@ const footerClasses = {
         </div>
       </div>
 
-      <div class="stack-row--mobile-column gap-8">
+      <div class="stack-row--mobile-column gap-8 links-container">
         <div class="stack-column gap-1">
           <h5 class=`title-list ${footerClasses.textSecondary}`>Navigation</h5>
           <ul class="menu-footer stack-column gap-1">
@@ -186,7 +186,15 @@ const footerClasses = {
 
   @media (max-width: 960px) {
     .footer {
-      margin-top: var(--space-8);
+      margin-top: var(--space-6);
+      padding-left: var(--space-3-5);
+      padding-right: var(--space-3-5);
+    }
+    .links-container {
+      gap: var(--space-4);
+    }
+    .infos-footer-box {
+      margin-bottom: var(--space-3);
     }
   }
 </style>

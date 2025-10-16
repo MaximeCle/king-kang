@@ -1,4 +1,4 @@
-<div class="contact-box-container stack-row gap-8 fade-in">
+<div class="stack-row--mobile-column contact-box-container fade-in">
   <div class="cooordonnes-container">
     <h3 class="subtitle-light">Contactez-nous</h3>
     <div class="coordonnees-content stack-column gap-2">
@@ -14,35 +14,38 @@
       <div class="stack-column">
         <p class="label-coordonnees">Adresse postale</p>
         <p class="coordonnees">
-          1&2 bis, Rue Antoine Laurent de Lavoisie 76300 Sotteville-lès-Rouen
+          1&2 bis, Rue Antoine Laurent de Lavoisier 76300 Sotteville-lès-Rouen
         </p>
       </div>
     </div>
   </div>
-  <div class="form-container stack-column gap-4">
+  <form id="contactForm" class="form-container stack-column gap-4">
     <div class="stack-column gap-0-5">
       <label>Nom</label>
-      <input type="text" />
+      <input type="text" name="name" />
     </div>
     <div class="stack-column gap-0-5">
       <label>Prénom</label>
-      <input type="text" />
+      <input type="text" name="firstName" />
     </div>
     <div class="stack-column gap-0-5">
       <label>Adresse email</label>
-      <input type="email" />
+      <input type="email" name="email" required="required" />
     </div>
     <div class="stack-column gap-0-5">
       <label>Message</label>
-      <textarea></textarea>
+      <textarea name="message" required="required"></textarea>
     </div>
     <div class="flex-justify-end">
-      <button class="button">Envoyer le message</button>
+      <button class="button" type="submit">Envoyer le message</button>
     </div>
-  </div>
+  </form>
   <img src="/kangaroo.svg" class="kangaroo-illustration" />
 </div>
-<style>
+
+<div id="toastContainer" class="toast-container"></div>
+
+<style is:global>
   .contact-box-container {
     padding: var(--space-6) var(--space-8);
     background-color: rgba(88, 111, 131, 0.25);
@@ -52,6 +55,7 @@
     max-width: 1080px;
     margin: var(--space-xl) auto;
     position: relative;
+    gap: var(--space-8);
   }
   .coordonnees-title {
     color: var(--color-border);
@@ -83,4 +87,160 @@
     opacity: 0.3;
     height: 58px;
   }
+
+  .toast-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .toast {
+    min-width: 250px;
+    padding: var(--space-2) var(--space-2-5);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-size: var(--font-size-sm);
+  }
+
+  .toast-success {
+    background-color: #e2f6e2;
+    color: #007f00;
+  }
+
+  .toast-error {
+    background-color: #ffedeb;
+    color: #d91414;
+  }
+
+  .toast-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .toast-message {
+    flex: 1;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+  }
+
+  .toast-removing {
+    animation: slideOut 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+  }
+
+  @media (max-width: 960px) {
+    .coordonnees-content {
+      margin-top: var(--space-5);
+    }
+    .contact-box-container {
+      padding: var(--space-3);
+      margin: var(--space-8) var(--space-4);
+      gap: var(--space-4);
+    }
+    .kangaroo-illustration {
+      display: none;
+    }
+  }
 </style>
+
+<script>
+  function showToast(message: string, type = "success") {
+    const container = document.getElementById("toastContainer");
+    if (!container) return;
+
+    const toast = document.createElement("div");
+    toast.className = `toast toast-${type}`;
+
+    const icon = type === "success" ? "✓" : "✕";
+
+    toast.innerHTML = `
+      <span class="toast-icon">${icon}</span>
+      <span class="toast-message">${message}</span>
+    `;
+
+    container.appendChild(toast);
+
+    // Auto-fermeture après 5 secondes
+    setTimeout(() => removeToast(toast), 3000);
+  }
+
+  function removeToast(toast: HTMLElement) {
+    toast.classList.add("toast-removing");
+    setTimeout(() => toast.remove(), 300);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm") as HTMLFormElement;
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      // Désactiver le bouton pendant l'envoi
+      const submitBtn = form.querySelector(
+        'button[type="submit"]',
+      ) as HTMLButtonElement;
+      if (!submitBtn) return;
+
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Envoi en cours...";
+
+      try {
+        const res = await fetch("https://formcarry.com/s/fTbijvM2vnq", {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" },
+        });
+
+        const data = await res.json();
+
+        if (data.code === 200) {
+          form.reset();
+          showToast("Message envoyé avec succès !", "success");
+        } else {
+          showToast(
+            "Erreur lors de l'envoi du message. Veuillez réessayer.",
+            "error",
+          );
+        }
+      } catch (error) {
+        showToast(
+          "Erreur de connexion. Veuillez vérifier votre connexion internet.",
+          "error",
+        );
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  });
+</script>

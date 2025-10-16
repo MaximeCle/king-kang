@@ -7,7 +7,7 @@ import { pricingItems } from "../content/content";
     <h5 class="surtitle">Prix</h5>
     <h2>Les offres King kang</h2>
   </div>
-  <div class="stack-row--mobile-column flex-align-center gap-4 fade-in">
+  <div class="flex-align-center gap-4 fade-in pricing-column">
     {
       pricingItems.map((item, index) => (
         <>
@@ -78,6 +78,11 @@ import { pricingItems } from "../content/content";
     margin-top: -50px;
   }
 
+  .pricing-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: var(--space-4);
+  }
   .pricing-item {
     border: 1px solid;
     border-color: var(--color-border);
@@ -161,5 +166,20 @@ import { pricingItems } from "../content/content";
     border-radius: var(--border-radius-sm);
     font-weight: 600;
     box-shadow: var(--box-shadow-sm);
+  }
+  @media (max-width: 1280px) {
+    .pricing-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pricing-column {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
   }
 </style>
