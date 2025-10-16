@@ -5,7 +5,7 @@
   </div>
 
   <div
-    class="functionalities-content stack-row--mobile-column flex-align-center fade-in gap-3"
+    class="functionalities-content stack-row--mobile-column flex-align-center fade-in gap-4"
   >
     <div class="functionalities-screen"></div>
     <div class="stack-column gap-2 functionalities-text">
@@ -21,9 +21,9 @@
     </div>
   </div>
   <div
-    class="functionalities-content stack-row--mobile-column flex-align-center fade-in gap-3"
+    class="functionalities-content stack-row--mobile-column flex-align-center fade-in gap-4"
   >
-    <div class="stack-column gap-2 functionalities-text">
+    <div class="stack-column gap-2 functionalities-text order-2-mobile">
       <h3>
         Signer des <span class="highlight-text">bons de commande</span> ullamcorper
         tortora
@@ -37,10 +37,10 @@
         justo, vitae auctor felis.
       </p>
     </div>
-    <div class="functionalities-screen"></div>
+    <div class="functionalities-screen order-1-mobile"></div>
   </div>
   <div
-    class="functionalities-content stack-row--mobile-column flex-align-center fade-in gap-3"
+    class="functionalities-content stack-row--mobile-column flex-align-center fade-in gap-4"
   >
     <div class="functionalities-screen"></div>
     <div class="stack-column gap-2 functionalities-text">
@@ -98,8 +98,13 @@
       min-width: 100%;
     }
     .functionalities-more {
-      margin-top: var(--space-8);
-      font-size: var(--font-size-sm);
+      display: none;
+    }
+    .order-1-mobile {
+      order: 1;
+    }
+    .order-2-mobile {
+      order: 2;
     }
   }
 </style>

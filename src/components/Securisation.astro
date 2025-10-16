@@ -1,5 +1,5 @@
 <div class="block securisation-block">
-  <div class="stack-row--mobile-column gap-8 fade-in">
+  <div class="stack-row--mobile-column gap-8 fade-in securisation-content">
     <div class="securisation-illustration">
       <img src="/lock.png" class="lock-illustration" />
       <img src="/signature.jpg" class="signature-image" />
@@ -49,9 +49,21 @@
     }
 
     @media (max-width: 960px) {
+      .securisation-block {
+        margin-top: var(--space-3);
+      }
       .signature-image {
         height: auto;
         width: 100%;
+      }
+      .securisation-illustration {
+        padding: var(--space-3);
+      }
+      .lock-illustration {
+        width: 80px;
+      }
+      .securisation-content {
+        gap: 32px;
       }
     }
   </style>
