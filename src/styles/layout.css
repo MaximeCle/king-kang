@@ -139,7 +139,7 @@
   overflow: hidden;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .stack-row--mobile-column {
     display: flex;
     flex-direction: column;

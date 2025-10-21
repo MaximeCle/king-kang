@@ -2,6 +2,7 @@
   max-width: 1060px;
   margin-left: auto;
   margin-right: auto;
+
   margin-top: var(--space-xl);
 }
 
@@ -99,12 +100,11 @@
 
 @media (max-width: 768px) {
   .article-container {
-    width: 100%;
+    max-width: 100%;
     margin-left: var(--space-4);
     margin-right: var(--space-4);
     margin-top: var(--space-8);
   }
-
   .image-article {
     border-radius: var(--border-radius-sm);
     max-width: 100%;
@@ -113,13 +113,18 @@
     max-width: 100%;
   }
   .article-content {
-    width: 100%;
-    margin-left: var(--space-4);
-    margin-right: var(--space-4);
+    max-width: 100%;
+    margin-top: 0;
   }
   .article-content p {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.8;
     margin-bottom: var(--space-2);
+  }
+  .article-content h1 {
+    font-size: var(--font-size-2xl);
+  }
+  .article-content h2 {
+    font-size: var(--font-size-xl);
   }
 }
