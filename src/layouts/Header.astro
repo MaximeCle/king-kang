@@ -2,10 +2,9 @@
 const path = Astro.url.pathname;
 const isBlog = path.startsWith("/blog");
 
-
 const isActiveItem = (href: string, currentPath: string) => {
   if (href.startsWith("#")) {
-    return false; 
+    return false;
   }
   if (currentPath === href) {
     return true;
@@ -14,8 +13,7 @@ const isActiveItem = (href: string, currentPath: string) => {
     return true;
   }
   return false;
-}
-
+};
 ---
 
 <header
@@ -75,8 +73,56 @@ const isActiveItem = (href: string, currentPath: string) => {
       </nav>
       <button class="button">Se connecter</button>
     </div>
+
+    <!-- Burger menu button -->
+    <button class="burger-button" id="burger-button" aria-label="Menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
   </div>
 </header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <nav class="mobile-nav">
+    <ul class="mobile-menu-list">
+      <li>
+        <a href="/" class="mobile-menu-item" data-section="accueil">Accueil</a>
+      </li>
+      <li>
+        <a
+          href="/#fonctionnalités"
+          class="mobile-menu-item"
+          data-section="fonctionnalités"
+        >
+          Fonctionnalités
+        </a>
+      </li>
+      <li>
+        <a href="/#prix" class="mobile-menu-item" data-section="prix">Prix</a>
+      </li>
+      <li>
+        <a
+          href="/blog"
+          class={`mobile-menu-item ${isActiveItem("/blog", path) ? "mobile-menu-item-active" : ""}`}
+          data-section="blog"
+        >
+          Blog
+        </a>
+      </li>
+      <li>
+        <a
+          href="/contact"
+          class={`mobile-menu-item ${isActiveItem("/contact", path) ? "mobile-menu-item-active" : ""}`}
+          data-section="contact"
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+    <button class="button mobile-login-button">Se connecter</button>
+  </nav>
+</div>
 
 <style>
   .header {
@@ -87,7 +133,7 @@ const isActiveItem = (href: string, currentPath: string) => {
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 1001;
     align-items: center;
     padding-top: var(--space-1);
     padding-bottom: var(--space-1);
@@ -176,7 +222,9 @@ const isActiveItem = (href: string, currentPath: string) => {
     mix-blend-mode: difference;
     font-weight: 300;
     text-decoration: none;
-    transition: opacity 0.3s ease,  font-weight: 0.2s ease;
+    transition:
+      opacity 0.3s ease,
+      font-weight 0.2s ease;
   }
 
   .menu-item:hover {
@@ -192,6 +240,118 @@ const isActiveItem = (href: string, currentPath: string) => {
     opacity: 0.85;
   }
 
+  /* Burger button */
+  .burger-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+  }
+
+  .burger-line {
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    border-radius: 2px;
+  }
+
+  .burger-button.active .burger-line:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+  }
+
+  .burger-button.active .burger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-button.active .burger-line:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+  }
+
+  .burger-button.active {
+    color: var(--color-text-primary);
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-background, #ffffff);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    overflow: hidden;
+  }
+
+  .header.active .logo-grey {
+    display: inline;
+  }
+
+  .header.active .logo-white {
+    display: none;
+  }
+
+  .header.active .logo {
+    color: var(--color-text-primary);
+  }
+
+  .mobile-menu.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: var(--space-4);
+    padding-top: 100px;
+  }
+
+  .mobile-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .mobile-menu-item {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-menu-item:hover {
+    opacity: 0.65;
+  }
+
+  .mobile-menu-item-active {
+    font-weight: 600;
+  }
+
+  .mobile-login-button {
+    margin-top: var(--space-6);
+  }
+
   @media (min-width: 2000px) {
     .menu-container {
       max-width: 1920px;
@@ -200,18 +360,47 @@ const isActiveItem = (href: string, currentPath: string) => {
     }
   }
 
-/* Mobile */
-@media (max-width: 767px) {
-  .actions-menu {
-  display:none;
+  /* Mobile */
+  @media (max-width: 767px) {
+    .actions-menu {
+      display: none;
+    }
+
+    .burger-button {
+      display: flex;
+    }
   }
-}
 </style>
 
 <script>
-
   const header = document.getElementById("header");
   const sections = ["accueil", "fonctionnalités", "prix"];
+  const burgerButton = document.getElementById("burger-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuItems = document.querySelectorAll(".mobile-menu-item");
+
+  burgerButton?.addEventListener("click", () => {
+    burgerButton.classList.toggle("active");
+    mobileMenu?.classList.toggle("active");
+    header?.classList.toggle("active");
+
+    if (mobileMenu?.classList.contains("active")) {
+      document.body.style.overflow = "hidden";
+      document.body.style.maxHeight = "100Vh";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.maxHeight = "";
+    }
+  });
+
+  // Close menu when clicking on a link
+  mobileMenuItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      burgerButton?.classList.remove("active");
+      mobileMenu?.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  });
 
   // Gestion du background du header au scroll
   const updateHeaderBackground = () => {
