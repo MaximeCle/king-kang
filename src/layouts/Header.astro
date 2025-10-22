@@ -252,6 +252,7 @@ const isActiveItem = (href: string, currentPath: string) => {
     cursor: pointer;
     padding: 0;
     z-index: 1001;
+    color: inherit;
   }
 
   .burger-line {
@@ -385,20 +386,21 @@ const isActiveItem = (href: string, currentPath: string) => {
     header?.classList.toggle("active");
 
     if (mobileMenu?.classList.contains("active")) {
-      document.body.style.overflow = "hidden";
-      document.body.style.maxHeight = "100Vh";
+      document.documentElement.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "";
-      document.body.style.maxHeight = "";
+      document.documentElement.style.overflow = "";
     }
   });
 
   // Close menu when clicking on a link
   mobileMenuItems.forEach((item) => {
     item.addEventListener("click", () => {
-      burgerButton?.classList.remove("active");
-      mobileMenu?.classList.remove("active");
-      document.body.style.overflow = "";
+      const href = item.getAttribute("href");
+      if (href && href.includes("#") && href !== "/") {
+        burgerButton?.classList.remove("active");
+        mobileMenu?.classList.remove("active");
+        document.documentElement.style.overflow = "";
+      }
     });
   });
 
