@@ -1,0 +1,43 @@
+<div class="stack-row gap-3 flex-justify-center">
+  <a
+    href="#"
+    target="_blank"
+    rel="noopener"
+    class="share-btn x"
+    aria-label="Partager sur X"
+  >
+    <img src="/x.svg" alt="Partager sur X" />
+  </a>
+  <a
+    href="#"
+    target="_blank"
+    rel="noopener"
+    class="share-btn facebook"
+    aria-label="Partager sur Facebook"
+  >
+    <img src="/facebook.svg" alt="Partager sur Facebook" />
+  </a>
+  <a
+    href="#"
+    target="_blank"
+    rel="noopener"
+    class="share-btn linkedin"
+    aria-label="Partager sur LinkedIn"
+  >
+    <img src="/linkedin.svg" alt="Partager sur LinkedIn" />
+  </a>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+
+    document.querySelector(".share-btn.x").href =
+      `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+    document.querySelector(".share-btn.facebook").href =
+      `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    document.querySelector(".share-btn.linkedin").href =
+      `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+  });
+</script>

@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+import ShareLinks from "../../components/shareLinks.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -31,11 +32,14 @@ const { Content } = await render(post);
             .replace(/^./, (str) => str.toUpperCase())
         }
       </p>
+      <ShareLinks />
+
       <img src={post.data.image} class="image-article" />
     </div>
 
     <div class="article-content">
       <Content />
     </div>
+    <ShareLinks />
   </div>
 </BlogPostLayout>

@@ -247,7 +247,7 @@
 
 <script>
   const modal = document.getElementById("video-modal");
-  const iframe = document.getElementById("youtube-frame");
+  const iframe = document.getElementById("youtube-frame") as HTMLIFrameElement;
   const videoBtn = document.querySelector(".button-video");
   const closeBtn = document.querySelector(".modal-close");
 
@@ -255,7 +255,6 @@
     if (modal) {
       modal.classList.remove("hidden");
       document.body.style.overflow = "hidden";
-      // Démarrer la lecture automatique
       if (iframe) {
         const src = iframe.src;
         iframe.src = src.includes("autoplay=1") ? src : src + "&autoplay=1";
@@ -267,11 +266,9 @@
     if (modal) {
       modal.classList.add("hidden");
       document.body.style.overflow = "auto";
-      // Arrêter la vidéo en réinitialisant l'iframe
       if (iframe) {
         const src = iframe.src;
         iframe.src = "";
-        // Remettre l'URL après un court délai pour préparer la prochaine ouverture
         setTimeout(() => {
           iframe.src = src
             .replace("&autoplay=1", "")

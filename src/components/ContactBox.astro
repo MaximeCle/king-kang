@@ -3,17 +3,22 @@
     <h3 class="subtitle-light">Contactez-nous</h3>
     <div class="coordonnees-content stack-column gap-2">
       <p class="coordonnees-title">Nos coordonnées</p>
-      <div class="stack-column">
+      <div class="stack-column coordonnes-container">
         <p class="label-coordonnees">Téléphone</p>
-        <p class="coordonnees">06 09 54 21 74</p>
+        <p class="coordonnees" data-copy="06 09 54 21 74">06 09 54 21 74</p>
       </div>
-      <div class="stack-column">
+      <div class="stack-column coordonnes-container">
         <p class="label-coordonnees">Adresse email</p>
-        <p class="coordonnees">kingkang@gmail.fr</p>
+        <p class="coordonnees" data-copy="kingkang@gmail.fr">
+          kingkang@gmail.fr
+        </p>
       </div>
-      <div class="stack-column">
+      <div class="stack-column coordonnes-container">
         <p class="label-coordonnees">Adresse postale</p>
-        <p class="coordonnees">
+        <p
+          class="coordonnees"
+          data-copy="1&2 bis, Rue Antoine Laurent de Lavoisier 76300 Sotteville-lès-Rouen"
+        >
           1&2 bis, Rue Antoine Laurent de Lavoisier 76300 Sotteville-lès-Rouen
         </p>
       </div>
@@ -129,6 +134,42 @@
     flex: 1;
   }
 
+  .coordonnees {
+    cursor: pointer;
+    position: relative;
+    transition: opacity 0.3s ease;
+  }
+
+  .coordonnees:hover {
+    opacity: 0.75;
+  }
+
+  .copied-tooltip {
+    position: absolute;
+    top: 0px;
+    left: 20%;
+    transform: translateX(-50%);
+    background: rgba(26, 126, 194);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    pointer-events: none;
+    opacity: 0;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+    white-space: nowrap;
+  }
+  .copied-tooltip.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+  }
+
+  .coordonnes-container {
+    position: relative;
+  }
+
   @keyframes slideIn {
     from {
       transform: translateY(100px);
@@ -173,31 +214,7 @@
 </style>
 
 <script>
-  function showToast(message: string, type = "success") {
-    const container = document.getElementById("toastContainer");
-    if (!container) return;
-
-    const toast = document.createElement("div");
-    toast.className = `toast toast-${type}`;
-
-    const icon = type === "success" ? "✓" : "✕";
-
-    toast.innerHTML = `
-      <span class="toast-icon">${icon}</span>
-      <span class="toast-message">${message}</span>
-    `;
-
-    container.appendChild(toast);
-
-    // Auto-fermeture après 5 secondes
-    setTimeout(() => removeToast(toast), 3000);
-  }
-
-  function removeToast(toast: HTMLElement) {
-    toast.classList.add("toast-removing");
-    setTimeout(() => toast.remove(), 300);
-  }
-
+  // Envoi formulaire
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm") as HTMLFormElement;
     if (!form) return;
@@ -243,6 +260,61 @@
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
       }
+    });
+  });
+
+  // Toast
+  function showToast(message: string, type = "success") {
+    const container = document.getElementById("toastContainer");
+    if (!container) return;
+
+    const toast = document.createElement("div");
+    toast.className = `toast toast-${type}`;
+
+    const icon = type === "success" ? "✓" : "✕";
+
+    toast.innerHTML = `
+      <span class="toast-icon">${icon}</span>
+      <span class="toast-message">${message}</span>
+    `;
+
+    container.appendChild(toast);
+
+    setTimeout(() => removeToast(toast), 3000);
+  }
+
+  function removeToast(toast: HTMLElement) {
+    toast.classList.add("toast-removing");
+    setTimeout(() => toast.remove(), 300);
+  }
+
+  // Copie coordonnées
+  document.addEventListener("DOMContentLoaded", () => {
+    const coordonneesElems: NodeListOf<HTMLElement> =
+      document.querySelectorAll(".coordonnees");
+
+    coordonneesElems.forEach((el: HTMLElement) => {
+      el.addEventListener("click", async () => {
+        const textToCopy = el.dataset.copy || el.textContent;
+
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+
+          const tooltip = document.createElement("span");
+          tooltip.className = "copied-tooltip";
+          tooltip.textContent = "Copié !";
+          el?.parentElement?.appendChild(tooltip);
+
+          requestAnimationFrame(() => tooltip.classList.add("show"));
+
+          setTimeout(() => {
+            tooltip.classList.remove("show");
+            setTimeout(() => tooltip.remove(), 300);
+          }, 1500);
+        } catch (err) {
+          console.error("Erreur lors de la copie :", err);
+        }
+      });
     });
   });
 </script>
