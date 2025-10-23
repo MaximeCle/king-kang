@@ -39,10 +39,10 @@ export const visionItems = [
 
 export const pricingItems = [
   {
-    title: "Découverte",
-    price: 15,
+    title: "Essentielle",
+    price: "15 € / mois / entreprise",
     description:
-      "Tincidunt diam, malesuada elementum justo. Ut neque nulla, pulvinar ac pulvinar non",
+      "La base pour bien démarrer ! Configure ton outil, gère tes contacts, crée tes devis et factures, et garde un œil sur tes stats.",
     highlight: false,
     options: [
       {
@@ -81,9 +81,9 @@ export const pricingItems = [
   },
   {
     title: "Bronze",
-    price: 50,
+    price: "50 € / mois / entreprise",
     description:
-      "Tincidunt diam, malesuada elementum justo. Ut neque nulla, pulvinar ac pulvinar non",
+      "La version essentielle… avec du muscle en plus 💪 ! Profite du multi-utilisateur, de 10 signatures électroniques à valeur probatoire, et d’un coffre-fort numérique.",
     highlight: false,
     options: [
       {
@@ -122,9 +122,9 @@ export const pricingItems = [
   },
   {
     title: "Argent",
-    price: 100,
+    price: "100 € / mois / entreprise",
     description:
-      "Tincidunt diam, malesuada elementum justo. Ut neque nulla, pulvinar ac pulvinar non",
+      "La Bronze sous stéroïdes ! 😎 Garde toutes ses fonctionnalités et passe à 25 signatures électroniques pour faire signer en série.",
     highlight: true,
     options: [
       {
@@ -163,9 +163,50 @@ export const pricingItems = [
   },
   {
     title: "Or",
-    price: 150,
+    price: "150 € / mois / entreprise",
     description:
-      "Tincidunt diam, malesuada elementum justo. Ut neque nulla, pulvinar ac pulvinar non",
+      "Là, on joue dans la cour des grands ✨ ! Profite de toutes les fonctionnalités de l’offre Argent, avec 50 signatures électroniques et un espace de stockage élargi.",
+    highlight: false,
+    options: [
+      {
+        enabled: true,
+        option: "Configuration KingKang",
+      },
+      {
+        enabled: true,
+        option: "Devis",
+      },
+      {
+        enabled: true,
+        option: "Gestion des contacts",
+      },
+      {
+        enabled: true,
+        option: "Statistiques",
+      },
+      {
+        enabled: true,
+        option: "Coffre-fort numérique",
+      },
+      {
+        enabled: true,
+        option: "Signatures à valeur probatoire",
+      },
+      {
+        enabled: true,
+        option: "Multi-utilisateur",
+      },
+      {
+        enabled: true,
+        option: "Intégration du catalogue",
+      },
+    ],
+  },
+  {
+    title: "La sur-mesure",
+    price: "Sur devis",
+    description:
+      "Le top du top, rien que pour toi 🚀 ! Tout ce que contient l’offre Or, avec plus de signatures, plus de stockage, et un accompagnement personnalisé.",
     highlight: false,
     options: [
       {

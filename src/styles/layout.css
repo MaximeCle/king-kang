@@ -1,5 +1,5 @@
 .container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -163,9 +163,19 @@
   }
 }
 
-@media (min-width: 2000px) {
+@media (max-width: 1440px) {
   .container {
     max-width: 1280px;
+  }
+  .block {
+    padding-left: var(--space-3-5);
+    padding-right: var(--space-3-5);
+  }
+}
+
+@media (min-width: 2000px) {
+  .container {
+    max-width: 1400px;
   }
   .background-blog {
     background-image: url("/KK-effect-white-2560.svg");

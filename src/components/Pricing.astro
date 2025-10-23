@@ -31,15 +31,16 @@ import { pricingItems } from "../content/content";
                 <h3 class={`${item.highlight && "title-light"}`}>
                   {item.title}
                 </h3>
-                <h2
-                  class={`${item.highlight && "title-light"}`}
-                >{`${item.price} € / mois`}</h2>
-
-                <p
-                  class={`${item.highlight ? "text-main-light" : "pricing-description"}`}
-                >
-                  {item.description}
-                </p>
+                <h4 class={`${item.highlight && "title-light"}`}>
+                  {item.price}
+                </h4>
+                <div class="description-container">
+                  <p
+                    class={`${item.highlight ? "text-main-light" : "pricing-description"}`}
+                  >
+                    {item.description}
+                  </p>
+                </div>
               </div>
               <ul class="pricing-options stack-column gap-2-5">
                 {item.options.map((itemOptions, index) => (
@@ -58,7 +59,7 @@ import { pricingItems } from "../content/content";
                       />
                     </div>
                     <p
-                      class={`${item.highlight ? "option-highlight-text" : "text-secondary"}`}
+                      class={`${item.highlight ? "option-highlight-text" : "text-secondary"} option-text`}
                     >
                       {itemOptions.option}
                     </p>
@@ -80,8 +81,8 @@ import { pricingItems } from "../content/content";
 
   .pricing-column {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: var(--space-4);
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: var(--space-3);
   }
   .pricing-item {
     border: 1px solid;
@@ -90,7 +91,7 @@ import { pricingItems } from "../content/content";
     position: relative;
   }
   .pricing-container-intern {
-    padding: var(--space-3);
+    padding: var(--space-2);
     border-radius: var(--border-radius-md);
     position: relative;
     overflow: hidden;
@@ -100,9 +101,13 @@ import { pricingItems } from "../content/content";
     background-color: var(--color-background-primary);
     z-index: -2;
   }
+
   .option-highlight-text {
     color: var(--color-border);
-    font-size: var(--font-size-md);
+  }
+
+  .option-text {
+    font-size: var(--font-size-sm);
   }
   .pricing-item-header {
     padding-bottom: var(--space-2-5);
@@ -115,16 +120,20 @@ import { pricingItems } from "../content/content";
     padding: var(--space-2-5) 0;
   }
   .pricing-description {
-    font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
+  }
+
+  .description-container p {
+    font-size: var(--font-size-sm);
+    word-wrap: break-word;
   }
   .icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    height: 22px;
-    width: 22px;
+    min-height: 22px;
+    min-width: 22px;
   }
   .icon-success {
     background: var(--color-success-background);
@@ -153,11 +162,12 @@ import { pricingItems } from "../content/content";
     position: absolute;
     z-index: -1;
   }
+
   .popular-indication {
     position: absolute;
     top: 0;
     left: 50%;
-    width: fit-content;
+    width: max-content;
     transform: translate(-50%, -50%);
     color: #1a7ec2;
     background: #f1f9ff;
@@ -167,11 +177,24 @@ import { pricingItems } from "../content/content";
     font-weight: 600;
     box-shadow: var(--box-shadow-sm);
   }
+
   @media (max-width: 1280px) {
     .pricing-column {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--space-4);
+    }
+  }
+
+  @media (max-width: 1440px) {
+    .pricing-column {
+      gap: var(--space-2-5);
+    }
+    .description-container {
+      min-height: 155px;
+    }
+    .pricing-item-header h4 {
+      font-size: var(--font-size-md);
     }
   }
 
