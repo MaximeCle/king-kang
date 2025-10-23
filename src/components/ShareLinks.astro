@@ -33,11 +33,21 @@
     const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent(document.title);
 
-    document.querySelector(".share-btn.x").href =
-      `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-    document.querySelector(".share-btn.facebook").href =
-      `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-    document.querySelector(".share-btn.linkedin").href =
-      `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+    const xBtn = document.querySelector(
+      ".share-btn.x",
+    ) as HTMLAnchorElement | null;
+    const facebookBtn = document.querySelector(
+      ".share-btn.facebook",
+    ) as HTMLAnchorElement | null;
+    const linkedinBtn = document.querySelector(
+      ".share-btn.linkedin",
+    ) as HTMLAnchorElement | null;
+
+    if (xBtn)
+      xBtn.href = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+    if (facebookBtn)
+      facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    if (linkedinBtn)
+      linkedinBtn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
   });
 </script>
