@@ -74,11 +74,15 @@ const isActiveItem = (href: string, currentPath: string) => {
       <button class="button">Se connecter</button>
     </div>
 
-    <!-- Burger menu button -->
     <button class="burger-button" id="burger-button" aria-label="Menu">
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
+      <div class="stack flex-align-center gap-1-5">
+        <div class="burger-lines">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </div>
+        <p>Menu</p>
+      </div>
     </button>
   </div>
 </header>
@@ -240,18 +244,28 @@ const isActiveItem = (href: string, currentPath: string) => {
     opacity: 0.85;
   }
 
-  /* Burger button */
   .burger-button {
     display: none;
-    flex-direction: column;
     justify-content: space-between;
-    width: 27px;
-    height: 21px;
+    gap: var(--space-1);
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
     z-index: 1001;
+    color: inherit;
+  }
+
+  .burger-button p {
+    line-height: normal;
+  }
+
+  .burger-lines {
+    display: flex;
+    width: 24px;
+    height: 18px;
+    flex-direction: column;
+    justify-content: space-between;
     color: inherit;
   }
 
@@ -266,7 +280,7 @@ const isActiveItem = (href: string, currentPath: string) => {
   }
 
   .burger-button.active .burger-line:nth-child(1) {
-    transform: translateY(9.5px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
   }
 
   .burger-button.active .burger-line:nth-child(2) {
@@ -274,14 +288,13 @@ const isActiveItem = (href: string, currentPath: string) => {
   }
 
   .burger-button.active .burger-line:nth-child(3) {
-    transform: translateY(-9.5px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   .burger-button.active {
     color: var(--color-text-primary);
   }
 
-  /* Mobile menu */
   .mobile-menu {
     position: fixed;
     top: 0;
