@@ -7,12 +7,7 @@
         <p class="label-coordonnees">Téléphone</p>
         <p class="coordonnees" data-copy="06 09 54 21 74">06 09 54 21 74</p>
       </div>
-      <div class="stack-column coordonnes-container">
-        <p class="label-coordonnees">Adresse email</p>
-        <p class="coordonnees" data-copy="kingkang@gmail.fr">
-          kingkang@gmail.fr
-        </p>
-      </div>
+
       <div class="stack-column coordonnes-container">
         <p class="label-coordonnees">Adresse postale</p>
         <p
@@ -30,15 +25,15 @@
       <input type="text" name="name" />
     </div>
     <div class="stack-column gap-0-5">
-      <label>Prénom</label>
-      <input type="text" name="firstName" />
-    </div>
-    <div class="stack-column gap-0-5">
-      <label>Adresse email</label>
+      <label>Adresse email <span class="required-indicator">*</span></label>
       <input type="email" name="email" required="required" />
     </div>
     <div class="stack-column gap-0-5">
-      <label>Message</label>
+      <label>Téléphone <span class="required-indicator">*</span></label>
+      <input type="tel" name="phone" required="required" />
+    </div>
+    <div class="stack-column gap-0-5">
+      <label>Message <span class="required-indicator">*</span></label>
       <textarea name="message" required="required"></textarea>
     </div>
     <div class="flex-justify-end">
@@ -92,7 +87,10 @@
     opacity: 0.3;
     height: 58px;
   }
-
+  .required-indicator {
+    color: #e53e3e;
+    font-size: var(--font-size-xs);
+  }
   .toast-container {
     position: fixed;
     bottom: 20px;
@@ -198,7 +196,7 @@
 
   @media (max-width: 1024px) {
     .coordonnees-content {
-      margin-top: var(--space-5);
+      margin-top: var(--space-8);
     }
     .contact-box-container {
       padding: 0;

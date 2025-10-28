@@ -376,7 +376,6 @@ const isActiveItem = (href: string, currentPath: string) => {
     }
   }
 
-  /* Mobile */
   @media (max-width: 767px) {
     .actions-menu {
       display: none;
@@ -414,7 +413,6 @@ const isActiveItem = (href: string, currentPath: string) => {
     }
   });
 
-  // Close menu when clicking on a link
   mobileMenuItems.forEach((item) => {
     item.addEventListener("click", () => {
       const href = item.getAttribute("href");
