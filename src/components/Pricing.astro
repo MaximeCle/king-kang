@@ -28,10 +28,10 @@ import { pricingItems } from "../content/content";
               <div
                 class={`pricing-item-header stack-column gap-1-5 ${item.highlight && "pricing-item-header-highlight"}`}
               >
-                <h3 class={`${item.highlight && "title-light"}`}>
+                <h3 class={`${item.highlight ? "title-light" : ""}`}>
                   {item.title}
                 </h3>
-                <h4 class={`${item.highlight && "title-light"}`}>
+                <h4 class={`${item.highlight ? "title-light" : ""}`}>
                   {item.price}
                 </h4>
                 <div class="description-container">
@@ -83,12 +83,16 @@ import { pricingItems } from "../content/content";
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: var(--space-3);
+    align-items: stretch;
   }
   .pricing-item {
     border: 1px solid;
     border-color: var(--color-border);
     border-radius: var(--border-radius-md);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
   .pricing-container-intern {
     padding: var(--space-2);
@@ -96,6 +100,9 @@ import { pricingItems } from "../content/content";
     position: relative;
     overflow: hidden;
     z-index: -2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
   .highlight-pricing {
     background-color: var(--color-background-primary);
@@ -112,6 +119,8 @@ import { pricingItems } from "../content/content";
   .pricing-item-header {
     padding-bottom: var(--space-2-5);
     border-bottom: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
   }
   .pricing-item-header-highlight {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -123,10 +132,17 @@ import { pricingItems } from "../content/content";
     color: var(--color-text-secondary);
   }
 
+  .description-container {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+  }
+
   .description-container p {
     font-size: var(--font-size-sm);
     word-wrap: break-word;
   }
+
   .icon-container {
     display: flex;
     justify-content: center;
@@ -189,9 +205,6 @@ import { pricingItems } from "../content/content";
   @media (max-width: 1440px) {
     .pricing-column {
       gap: var(--space-2-5);
-    }
-    .description-container {
-      min-height: 155px;
     }
     .pricing-item-header h4 {
       font-size: var(--font-size-md);

@@ -173,6 +173,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .background-blog {
+    background-image: url("/KK-effect-white-768.svg");
+    height: 550px;
+  }
+}
+
 @media (min-width: 2000px) {
   .container {
     max-width: 1400px;
