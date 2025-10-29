@@ -55,7 +55,7 @@ import { pricingItems } from "../content/content";
                       }`}
                     >
                       <img
-                        src={`/${itemOptions.enabled ? (item.highlight ? "check-blue" : "check-green") : "error"}.svg`}
+                        src={`/images/${itemOptions.enabled ? (item.highlight ? "check-blue" : "check-green") : "error"}.svg`}
                       />
                     </div>
                     <p
@@ -136,6 +136,7 @@ import { pricingItems } from "../content/content";
     flex: 1;
     display: flex;
     align-items: flex-start;
+    min-height: 150px;
   }
 
   .description-container p {
@@ -219,6 +220,9 @@ import { pricingItems } from "../content/content";
     }
     .pricing-container-intern {
       padding: var(--space-2-5);
+    }
+    .description-container {
+      min-height: fit-content;
     }
   }
 </style>

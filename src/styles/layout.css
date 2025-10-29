@@ -117,7 +117,7 @@
 }
 
 .background-blog {
-  background-image: url("/KK-effect-white-1920.svg");
+  background-image: url("/images/KK-effect-white-1920.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -175,7 +175,7 @@
 
 @media (max-width: 768px) {
   .background-blog {
-    background-image: url("/KK-effect-white-768.svg");
+    background-image: url("/images/KK-effect-white-768.svg");
     height: 550px;
   }
 }
@@ -185,6 +185,6 @@
     max-width: 1400px;
   }
   .background-blog {
-    background-image: url("/KK-effect-white-2560.svg");
+    background-image: url("/images/KK-effect-white-2560.svg");
   }
 }

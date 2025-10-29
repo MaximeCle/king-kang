@@ -2,7 +2,7 @@
 title: "Pourquoi la marche à pied est le meilleur remède contre le stress"
 description: "Il suffit parfois de peu pour se sentir mieux. Dans un monde où tout s’accélère, où les notifications s’enchaînent et où les journées semblent trop courtes, la solution pour retrouver son équilibre pourrait bien être sous nos pieds : la marche à pied. Pas besoin de matériel coûteux, ni de compétences particulières. Juste une paire de chaussures confortables et l’envie de prendre l’air."
 pubDate: 2025-08-26
-image: "https://www.oisans.com/app/uploads/iris-images/12857/randonnee-muzelle-04-1920x1080-f42_76.webp"
+image: "/blog/image-rando.jpg"
 ---
 
 # Pourquoi la marche à pied est le meilleur remède contre le stress
@@ -13,7 +13,7 @@ La marche agit comme un véritable antistress naturel. En marchant, notre corps 
 
 Contrairement à d’autres activités physiques plus intenses, la marche est accessible à tous, quel que soit son âge ou sa condition physique. Elle ne demande aucun effort surhumain, juste un peu de régularité. Une étude récente a même montré que 30 minutes de marche par jour suffisent à améliorer significativement l’humeur et à réduire les symptômes d’anxiété. Alors, pourquoi s’en priver ?
 
-![image](https://www.cevennes-gorges-du-tarn.com/app/uploads/2025/04/benoit-colomb-pact-cevennes-crtloccitanie-0052009-md-1.webp)
+![image](/blog/image-rando.jpg)
 
 Pour ceux qui pensent ne pas avoir le temps, sachez que la marche peut facilement s’intégrer dans une routine quotidienne. Remplacer un trajet en voiture par une balade à pied, descendre un arrêt de bus plus tôt, ou tout simplement prendre 10 minutes pendant la pause déjeuner pour faire le tour du pâté de maisons. Les occasions ne manquent pas.
 

@@ -34,7 +34,12 @@ const { Content } = await render(post);
       </p>
       <ShareLinks />
 
-      <img src={post.data.image} class="image-article" />
+      <img
+        src={post.data.image}
+        class="image-article"
+        alt="image article"
+        loading="lazy"
+      />
     </div>
 
     <div class="article-content">

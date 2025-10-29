@@ -5,7 +5,9 @@
       <p class="coordonnees-title">Nos coordonnées</p>
       <div class="stack-column coordonnes-container">
         <p class="label-coordonnees">Téléphone</p>
-        <p class="coordonnees" data-copy="06 09 54 21 74">06 09 54 21 74</p>
+        <p class="coordonnees" data-copy="06 09 54 21 74">
+          (+33) 06 09 54 21 74
+        </p>
       </div>
 
       <div class="stack-column coordonnes-container">
@@ -40,7 +42,11 @@
       <button class="button" type="submit">Envoyer le message</button>
     </div>
   </form>
-  <img src="/kangaroo.svg" class="kangaroo-illustration" />
+  <img
+    src="/images/kangaroo.svg"
+    class="kangaroo-illustration"
+    alt="image kangourou"
+  />
 </div>
 
 <div id="toastContainer" class="toast-container"></div>
@@ -232,7 +238,7 @@
       submitBtn.textContent = "Envoi en cours...";
 
       try {
-        const res = await fetch("https://formcarry.com/s/fTbijvM2vnq", {
+        const res = await fetch("https://formcarry.com/s/1CAr9_gTakw", {
           method: "POST",
           body: formData,
           headers: { Accept: "application/json" },

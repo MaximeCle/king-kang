@@ -17,14 +17,15 @@ const footerClasses = {
       <div class="stack-column gap-3 flex-justify-between infos-footer-box">
         <div class="stack-column gap-1">
           <img
-            src=`/${isContact? "logo-king-kang.svg" : "king-kang-logo-grey.svg"}`
+            src=`/images/${isContact? "logo-king-kang.svg" : "king-kang-logo-grey.svg"}`
             class="logo-footer"
+            alt="logo king kang"
           />
           <h4 class=`text-logo ${footerClasses.textPrimary}`>King Kang</h4>
         </div>
 
         <div class="stack-row gap-1">
-          <img src="/flag-france.svg" />
+          <img src="/images/flag-france.svg" alt="drapeau france" />
           <p class=`subtext-footer ${footerClasses.textSecondary}`>
             Données hébergées en france
           </p>
@@ -106,15 +107,22 @@ const footerClasses = {
       <div class="stack-row gap-2-5">
         <a href="/" class=`menu-item-footer ${footerClasses.textSecondary}`>
           <img
-            src=`/${isContact ? "facebook-white.svg": "facebook.svg"}`
+            src=`/images/${isContact ? "facebook-white.svg": "facebook.svg"}`
             class="social-logo"
+            alt="logo facebook"
           />
         </a>
         <a href="/">
-          <img src=`/${isContact ? "linkedin-white.svg":"linkedin.svg"}` />
+          <img
+            src=`/images/${isContact ? "linkedin-white.svg":"linkedin.svg"}`
+            alt="logo linkedin"
+          />
         </a>
         <a href="/">
-          <img src=`/${isContact ? "x-white.svg" : "x.svg"}` />
+          <img
+            src=`/images/${isContact ? "x-white.svg" : "x.svg"}`
+            alt="logo x"
+          />
         </a>
       </div>
     </div>

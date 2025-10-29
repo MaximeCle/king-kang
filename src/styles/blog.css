@@ -8,7 +8,7 @@
 
 .image-article {
   border-radius: var(--border-radius-md);
-  max-height: 500px;
+  height: 500px;
   margin: 0 auto;
   margin-top: var(--space-2-5);
   object-fit: cover;
