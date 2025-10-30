@@ -9,6 +9,10 @@
   padding-bottom: var(--space-xl);
 }
 
+.title-page-basic {
+  margin-bottom: var(--space-6);
+}
+
 .full-width-block {
   width: 100vw;
   width: 100dvw;
@@ -71,11 +75,6 @@
 .flex-align-between {
   display: flex;
   align-items: space-between;
-}
-
-.flex-justify-center {
-  display: flex;
-  justify-content: center;
 }
 
 .flex-justify-end {

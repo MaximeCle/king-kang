@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { Content, frontmatter } from "../content/cgu.md";
+---
+
+<Layout headerPrimary>
+  <div class="block basic-page">
+    <h1 class="title-page-basic">{frontmatter.title}</h1>
+    <Content />
+  </div>
+</Layout>

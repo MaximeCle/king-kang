@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout headerPrimary>
+  <div class="block flex-align-center stack-column gap-3">
+    <h1 class="masked">404</h1>
+    <p class="text-secondary">
+      Il semble que la page que vous cherchez n'existe pas
+    </p>
+    <a href="/" class="link">Retourner à l'accueil</a>
+  </div>
+</Layout>
+
+<style>
+  .masked {
+    font-size: 180px;
+    font-weight: 900;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+
+    /* image utilisée pour remplir le texte */
+    background-image: url("/images/KK-effect-768.svg");
+    background-size: cover;
+    background-position: center;
+
+    /* l’astuce : on découpe l’image dans le texte */
+    -webkit-background-clip: text;
+    background-clip: text; /* pour compatibilité future */
+    color: transparent;
+
+    /* pour safari/chrome : assurer que le texte est vraiment transparent */
+    -webkit-text-fill-color: transparent;
+  }
+</style>
