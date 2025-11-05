@@ -5,7 +5,7 @@ import Header from "../layouts/Header.astro";
 import Footer from "./Footer.astro";
 const path = Astro.url.pathname;
 const isContact = path.startsWith("/contact");
-const { headerPrimary } = Astro.props;
+const { defaultHeaderPrimary } = Astro.props;
 ---
 
 <!doctype html>
@@ -54,7 +54,7 @@ const { headerPrimary } = Astro.props;
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body class=`${isContact ? "contact-body" : ""}`>
-    <Header headerPrimary={headerPrimary} />
+    <Header defaultHeaderPrimary={defaultHeaderPrimary} />
     <div class="container">
       <slot />
     </div>

@@ -5,14 +5,8 @@ const { fallbackUrl = "/blog" } = Astro.props;
 <a
   href={fallbackUrl}
   class="stack-row link"
-  onclick={`
-    event.preventDefault();
-    if (window.history.length > 1 && document.referrer) {
-      window.history.back();
-    } else {
-      window.location.href = '${fallbackUrl}';
-    }
-  `}
+  data-fallback={fallbackUrl}
+  id="back-link"
 >
   <div class="back-icon">
     <img src={`/images/back.svg`} alt="retour" />
@@ -26,3 +20,16 @@ const { fallbackUrl = "/blog" } = Astro.props;
     min-width: 14px;
   }
 </style>
+
+<script>
+  document.getElementById("back-link")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    const fallback = (e.currentTarget as HTMLAnchorElement).dataset.fallback;
+
+    if (window.history.length > 1) {
+      window.history.back();
+    } else if (fallback) {
+      window.location.href = fallback;
+    }
+  });
+</script>

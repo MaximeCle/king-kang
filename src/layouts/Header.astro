@@ -14,13 +14,13 @@ const isActiveItem = (href: string, currentPath: string) => {
   return false;
 };
 
-const { headerPrimary = false } = Astro.props;
+const { defaultHeaderPrimary = false } = Astro.props;
 ---
 
 <header
   id="header"
-  class={`header header-transparent ${headerPrimary ? "header-content-primary" : "header-content-white"}`}
-  style={headerPrimary
+  class={`header header-transparent ${defaultHeaderPrimary ? "header-content-primary" : "header-content-white"}`}
+  style={defaultHeaderPrimary
     ? "border-bottom: 1px solid #e5e5e6;"
     : "border-bottom: 1px solid rgba(255, 255, 255, 0.1);"}
 >
